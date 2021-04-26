@@ -4,3 +4,10 @@
 16:10:21 INFO  : Successfully done setting XSCT server connection channel  
 16:10:21 INFO  : Processing command line option -hwspec C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper.hdf.
 16:10:21 INFO  : Successfully done setting SDK workspace  
+16:21:14 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\temp_xsdb_launch_script.tcl
+16:21:16 INFO  : XSCT server has started successfully.
+16:21:16 INFO  : Successfully done setting XSCT server connection channel  
+16:21:16 INFO  : Successfully done setting SDK workspace  
+16:21:17 INFO  : Registering command handlers for SDK TCF services
+16:21:17 INFO  : Processing command line option -hwspec C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper.hdf.
+16:21:17 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
