@@ -1,8 +1,23 @@
-16:26:07 **** Auto Build of configuration Debug for project xcp_freertos ****
+16:32:00 **** Auto Build of configuration Debug for project xcp_freertos ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for `main-build'.
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: xcp_freertos.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "xcp_freertos.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: xcp_freertos.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp_freertos.elf  |tee "xcp_freertos.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89636	   4180	  89424	 183240	  2cbc8	xcp_freertos.elf
+'Finished building: xcp_freertos.elf.size'
+' '
 
-16:26:08 Build Finished (took 986ms)
+16:32:04 Build Finished (took 4s.55ms)
 
