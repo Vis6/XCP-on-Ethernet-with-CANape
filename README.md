@@ -1,5 +1,8 @@
-# XCP-on-Ethernet-CANape
-Samples to show how to connect between Xilinx Zedboard and CANape using XCP on Ethernet.
+# Implementation of XCPonEthernet for communication between CANape and Xilinx Zynq-7000 ZedBoard
+## Description
+This project gives example codes to connect between Xilinx Zynq-7000 Zedboard and CANape using XCPonEthernet.
+
+The communication is implemented in both bare-metal and FreeRTOS.
 ## Platform
 ### Hardware
 - ZedBoard Zynq-7000 ARM/FPGA SoC Development Board. More information is available here: [ZedBoard Zynq-7000](https://www.xilinx.com/products/boards-and-kits/1-elhabt.html.html). 
