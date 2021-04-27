@@ -421,3 +421,6 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2021-04-26 16:32:13.468
 !MESSAGE XSCT command with result: [::hsi::utils::closesw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_standalone_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 1 0 2021-04-26 21:04:16.336
+!MESSAGE Executed Webtalk command
