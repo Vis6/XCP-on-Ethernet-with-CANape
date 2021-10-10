@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;xcp_freertos/src/freertos_hello_world.c&apos; to &apos;xcp_freertos_main.c&apos;" description="Rename resource &apos;freertos_hello_world.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/freertos_hello_world.c" name="xcp_freertos_main.c" stamp="1633894043253" updateReferences="true"/>
+</session>

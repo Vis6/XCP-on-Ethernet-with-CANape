@@ -230,3 +230,10 @@ con
 ----------------End of Script----------------
 
 15:24:25 INFO  : Disconnected from the channel tcfchan#5.
+15:26:48 INFO  : Registering command handlers for SDK TCF services
+15:26:49 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\temp_xsdb_launch_script.tcl
+15:26:51 INFO  : XSCT server has started successfully.
+15:26:51 INFO  : Successfully done setting XSCT server connection channel  
+15:26:51 INFO  : Successfully done setting SDK workspace  
+15:26:51 INFO  : Processing command line option -hwspec C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper.hdf.
+15:26:51 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.

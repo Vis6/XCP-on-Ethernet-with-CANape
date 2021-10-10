@@ -3379,3 +3379,73 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+15:27:23 **** Clean-only build of configuration Debug for project xcp_freertos ****
+make clean 
+rm -rf  ./src/freertos_hello_world.o  ./src/freertos_hello_world.d  xcp_freertos.elf.size  xcp_freertos.elf
+' '
+15:27:23 **** Auto Build of configuration Debug for project xcp_freertos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xcp_freertos_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xcp_freertos_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_freertos_main.d" -MT"src/xcp_freertos_main.o" -o "src/xcp_freertos_main.o" "../src/xcp_freertos_main.c"
+'Finished building: ../src/xcp_freertos_main.c'
+' '
+'Building target: xcp_freertos.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "xcp_freertos.elf"  ./src/xcp_freertos_main.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+'Finished building target: xcp_freertos.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp_freertos.elf  |tee "xcp_freertos.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89636	   4180	  89424	 183240	  2cbc8	xcp_freertos.elf
+'Finished building: xcp_freertos.elf.size'
+' '
+15:27:55 **** Auto Build of configuration Debug for project xcp_freertos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building target: xcp_freertos.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "xcp_freertos.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/xcp_freertos_main.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendCrm':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:610: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:624: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:627: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendEv':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:652: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:666: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:670: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDto':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:699: undefined reference to `ApplXcpSend'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDtoFromQueue':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:717: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:728: undefined reference to `ApplXcpInterruptEnable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:731: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1345: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1508: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_freertos\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_freertos.elf] Error 1
