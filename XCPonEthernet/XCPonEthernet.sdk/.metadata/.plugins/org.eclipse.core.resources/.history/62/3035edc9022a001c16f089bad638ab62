@@ -39,7 +39,6 @@ static void prvTask2( void *pvParameters );
 // global variables
 static u32 task1_value = 0;
 static u32 task2_value = 0;
-int signal = 0;
 
 extern u32 XCP_100us_Counter; // XCP
 /*-----------------------------------------------------------*/
@@ -72,9 +71,6 @@ static void prvTask1( void *pvParameters)
 		task1_value++;
 		if (task1_value >= 100)
 			task1_value = (u32)0;
-
-		if (++signal == 100)
-			signal = 0;
 
 		XCP_100us_Counter += 20;
 		XcpEvent(1);

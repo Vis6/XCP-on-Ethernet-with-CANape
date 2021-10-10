@@ -1,4 +1,4 @@
-15:43:50 **** Auto Build of configuration Debug for project xcp_freertos ****
+15:46:40 **** Auto Build of configuration Debug for project xcp_freertos ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -15,9 +15,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size xcp_freertos.elf  |tee "xcp_freertos.elf.size"
    text	   data	    bss	    dec	    hex	filename
- 173556	   4232	2152752	2330540	 238fac	xcp_freertos.elf
+ 173620	   4232	2152752	2330604	 238fec	xcp_freertos.elf
 'Finished building: xcp_freertos.elf.size'
 ' '
 
-15:43:51 Build Finished (took 1s.434ms)
+15:46:42 Build Finished (took 1s.437ms)
 
