@@ -13,6 +13,8 @@
 #include "lwip/tcpip.h"
 #include "lwip/sys.h"
 #include "XcpBasic.h"
+#include "platform.h"
+#include "platform_config.h"
 #include "xparameters.h"
 #include "xil_exception.h"
 #if defined (__arm__) || defined(__aarch64__)
@@ -23,14 +25,11 @@
 #include "task.h"
 #include "sleep.h"
 
-
-/*
- * XCP
- */
-#define PLATFORM_EMAC_BASEADDR XPAR_XEMACPS_0_BASEADDR
-#define PLATFORM_ZYNQ
-
 extern u32 XCP_100us_Counter;
+
+// Minimizing LWIP code size
+#undef LWIP_TCP
+#undef LWIP_DHCP
 
 #define THREAD_STACKSIZE        1024
 #define MAIN_THREAD_STACKSIZE   2048

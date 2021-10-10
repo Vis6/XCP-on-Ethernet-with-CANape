@@ -109,7 +109,7 @@
           <property name="ClosePageButtonShowMode">NoWhere</property>
           <property name="ShowDropDownButton">true</property>
           <property name="DestroyOnClosingChildren">false</property>
-          <property name="SerializableSelectedTabPageIndex">0</property>
+          <property name="SerializableSelectedTabPageIndex">1</property>
           <property name="CaptionLocation">Top</property>
           <property name="SerializableDockSituation" iskey="true" value="0" />
           <property name="SerializationInfo" isnull="true" iskey="true" />

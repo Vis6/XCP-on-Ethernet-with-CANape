@@ -102,18 +102,21 @@
 #include "xil_printf.h"
 #include "xparameters.h"
 #include "xgpiops.h"
+#include "xil_io.h"
+#include "platform.h"
+#include "sleep.h"
 
+
+u32 XCP_100us_Counter; // XCP
 
 /*
  * PS GPIO
  */
 XGpioPs_Config *PS_GPIO_Config;
 XGpioPs PS_Gpio;
-int led_status = 0;
+volatile int led_status = 0;
 const int OUTPUT_PORT = 7;
-
-
-u32 XCP_100us_Counter; // XCP
+void psLedInit();
 
 /*
  * External functions.
@@ -126,6 +129,7 @@ extern void xcpEthInit();
  */
 int main( void )
 {
+	psLedInit();
 	xcpEthInit(); // initialize tcp/udp and xcp
 	mainPeriodicTasks(); // create periodic tasks
 
@@ -143,7 +147,7 @@ int main( void )
 /*
  * Other functions definition.
  */
-void psLEDInit()
+void psLedInit()
 {
 	// Gpio Init
 	int Status;

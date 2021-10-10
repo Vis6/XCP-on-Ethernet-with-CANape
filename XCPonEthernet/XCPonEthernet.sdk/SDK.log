@@ -239,3 +239,1256 @@ con
 15:26:51 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
 15:38:41 INFO  : Refreshed build settings on project xcp_freertos
 15:39:26 INFO  : Refreshed build settings on project xcp_freertos
+15:51:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+15:51:15 INFO  : 'fpga -state' command is executed.
+15:51:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:51:15 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+15:51:15 INFO  : 'jtag frequency' command is executed.
+15:51:15 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+15:51:15 INFO  : Context for 'APU' is selected.
+15:51:15 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+15:51:15 INFO  : 'configparams force-mem-access 1' command is executed.
+15:51:15 INFO  : Context for 'APU' is selected.
+15:51:15 INFO  : 'stop' command is executed.
+15:51:16 INFO  : 'ps7_init' command is executed.
+15:51:16 INFO  : 'ps7_post_config' command is executed.
+15:51:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:51:16 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:51:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:51:16 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_standalone/Debug/xcp_standalone.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:51:16 INFO  : 'configparams force-mem-access 0' command is executed.
+15:51:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_standalone/Debug/xcp_standalone.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:51:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:51:16 INFO  : 'con' command is executed.
+15:51:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+15:51:16 INFO  : Disconnected from the channel tcfchan#1.
+15:53:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+15:53:04 INFO  : 'fpga -state' command is executed.
+15:53:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:53:04 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+15:53:04 INFO  : 'jtag frequency' command is executed.
+15:53:04 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+15:53:04 INFO  : Context for 'APU' is selected.
+15:53:04 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+15:53:04 INFO  : 'configparams force-mem-access 1' command is executed.
+15:53:04 INFO  : Context for 'APU' is selected.
+15:53:04 INFO  : 'stop' command is executed.
+15:53:05 INFO  : 'ps7_init' command is executed.
+15:53:05 INFO  : 'ps7_post_config' command is executed.
+15:53:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:05 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:53:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:05 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:53:05 INFO  : 'configparams force-mem-access 0' command is executed.
+15:53:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:53:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:05 INFO  : 'con' command is executed.
+15:53:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+15:53:05 INFO  : Disconnected from the channel tcfchan#2.
+15:53:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+15:53:53 INFO  : 'fpga -state' command is executed.
+15:53:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:53:54 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+15:53:54 INFO  : 'jtag frequency' command is executed.
+15:53:54 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+15:53:54 INFO  : Context for 'APU' is selected.
+15:53:54 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+15:53:54 INFO  : 'configparams force-mem-access 1' command is executed.
+15:53:54 INFO  : Context for 'APU' is selected.
+15:53:54 INFO  : 'stop' command is executed.
+15:53:54 INFO  : 'ps7_init' command is executed.
+15:53:54 INFO  : 'ps7_post_config' command is executed.
+15:53:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:54 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:53:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:55 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:53:55 INFO  : 'configparams force-mem-access 0' command is executed.
+15:53:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:53:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:53:55 INFO  : 'con' command is executed.
+15:53:55 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+15:53:55 INFO  : Disconnected from the channel tcfchan#3.
+15:58:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+15:58:24 INFO  : 'fpga -state' command is executed.
+15:58:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:58:24 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+15:58:24 INFO  : 'jtag frequency' command is executed.
+15:58:24 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+15:58:24 INFO  : Context for 'APU' is selected.
+15:58:24 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+15:58:24 INFO  : 'configparams force-mem-access 1' command is executed.
+15:58:24 INFO  : Context for 'APU' is selected.
+15:58:24 INFO  : 'stop' command is executed.
+15:58:24 INFO  : 'ps7_init' command is executed.
+15:58:24 INFO  : 'ps7_post_config' command is executed.
+15:58:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:58:24 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:58:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:58:25 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:58:25 INFO  : 'configparams force-mem-access 0' command is executed.
+15:58:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:58:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:58:25 INFO  : 'con' command is executed.
+15:58:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+15:58:25 INFO  : Disconnected from the channel tcfchan#4.
+15:59:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+15:59:36 INFO  : 'fpga -state' command is executed.
+15:59:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:59:36 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+15:59:36 INFO  : 'jtag frequency' command is executed.
+15:59:36 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+15:59:36 INFO  : Context for 'APU' is selected.
+15:59:37 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+15:59:37 INFO  : 'configparams force-mem-access 1' command is executed.
+15:59:37 INFO  : Context for 'APU' is selected.
+15:59:38 INFO  : 'stop' command is executed.
+15:59:38 INFO  : 'ps7_init' command is executed.
+15:59:38 INFO  : 'ps7_post_config' command is executed.
+15:59:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:59:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+15:59:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:59:38 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:59:38 INFO  : 'configparams force-mem-access 0' command is executed.
+15:59:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:59:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:59:38 INFO  : 'con' command is executed.
+15:59:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+15:59:38 INFO  : Disconnected from the channel tcfchan#5.
+16:02:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:02:43 INFO  : 'fpga -state' command is executed.
+16:02:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:02:43 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:02:43 INFO  : 'jtag frequency' command is executed.
+16:02:43 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:02:43 INFO  : Context for 'APU' is selected.
+16:02:44 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:02:44 INFO  : 'configparams force-mem-access 1' command is executed.
+16:02:44 INFO  : Context for 'APU' is selected.
+16:02:44 INFO  : 'stop' command is executed.
+16:02:45 INFO  : 'ps7_init' command is executed.
+16:02:45 INFO  : 'ps7_post_config' command is executed.
+16:02:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:02:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:02:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:02:45 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:02:45 INFO  : 'configparams force-mem-access 0' command is executed.
+16:02:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:02:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:02:45 INFO  : 'con' command is executed.
+16:02:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:02:45 INFO  : Disconnected from the channel tcfchan#6.
+16:11:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:11:55 INFO  : 'fpga -state' command is executed.
+16:11:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:11:55 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:11:55 INFO  : 'jtag frequency' command is executed.
+16:11:55 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:11:55 INFO  : Context for 'APU' is selected.
+16:11:57 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:11:57 INFO  : 'configparams force-mem-access 1' command is executed.
+16:11:57 INFO  : Context for 'APU' is selected.
+16:11:57 INFO  : 'stop' command is executed.
+16:11:57 INFO  : 'ps7_init' command is executed.
+16:11:57 INFO  : 'ps7_post_config' command is executed.
+16:11:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:11:57 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:11:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:11:58 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:11:58 INFO  : 'configparams force-mem-access 0' command is executed.
+16:11:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:11:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:11:58 INFO  : 'con' command is executed.
+16:11:58 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:11:58 INFO  : Disconnected from the channel tcfchan#7.
+16:13:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:13:14 INFO  : 'fpga -state' command is executed.
+16:13:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:13:14 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:13:14 INFO  : 'jtag frequency' command is executed.
+16:13:14 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:13:14 INFO  : Context for 'APU' is selected.
+16:13:16 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:13:16 INFO  : 'configparams force-mem-access 1' command is executed.
+16:13:16 INFO  : Context for 'APU' is selected.
+16:13:16 INFO  : 'stop' command is executed.
+16:13:16 INFO  : 'ps7_init' command is executed.
+16:13:16 INFO  : 'ps7_post_config' command is executed.
+16:13:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:17 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:13:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:17 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:13:17 INFO  : 'configparams force-mem-access 0' command is executed.
+16:13:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:13:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:17 INFO  : 'con' command is executed.
+16:13:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:13:17 INFO  : Disconnected from the channel tcfchan#8.
+16:13:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:13:51 INFO  : 'fpga -state' command is executed.
+16:13:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:13:51 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:13:51 INFO  : 'jtag frequency' command is executed.
+16:13:51 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:13:51 INFO  : Context for 'APU' is selected.
+16:13:53 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:13:53 INFO  : 'configparams force-mem-access 1' command is executed.
+16:13:53 INFO  : Context for 'APU' is selected.
+16:13:53 INFO  : 'stop' command is executed.
+16:13:53 INFO  : 'ps7_init' command is executed.
+16:13:53 INFO  : 'ps7_post_config' command is executed.
+16:13:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:13:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:54 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:13:54 INFO  : 'configparams force-mem-access 0' command is executed.
+16:13:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:13:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:13:54 INFO  : 'con' command is executed.
+16:13:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:13:54 INFO  : Disconnected from the channel tcfchan#9.
+16:15:53 INFO  : Refreshed build settings on project xcp_freertos
+16:16:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:16:32 INFO  : 'fpga -state' command is executed.
+16:16:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:16:32 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:16:32 INFO  : 'jtag frequency' command is executed.
+16:16:32 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:16:32 INFO  : Context for 'APU' is selected.
+16:16:32 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:16:32 INFO  : 'configparams force-mem-access 1' command is executed.
+16:16:32 INFO  : Context for 'APU' is selected.
+16:16:32 INFO  : 'stop' command is executed.
+16:16:32 INFO  : 'ps7_init' command is executed.
+16:16:32 INFO  : 'ps7_post_config' command is executed.
+16:16:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:16:32 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:16:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:16:33 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:16:33 INFO  : 'configparams force-mem-access 0' command is executed.
+16:16:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:16:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:16:33 INFO  : 'con' command is executed.
+16:16:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:16:33 INFO  : Disconnected from the channel tcfchan#10.
+16:17:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:17:11 INFO  : 'fpga -state' command is executed.
+16:17:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:17:11 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:17:11 INFO  : 'jtag frequency' command is executed.
+16:17:11 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:17:11 INFO  : Context for 'APU' is selected.
+16:17:12 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:17:12 INFO  : 'configparams force-mem-access 1' command is executed.
+16:17:12 INFO  : Context for 'APU' is selected.
+16:17:13 INFO  : 'stop' command is executed.
+16:17:13 INFO  : 'ps7_init' command is executed.
+16:17:13 INFO  : 'ps7_post_config' command is executed.
+16:17:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:13 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:17:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:13 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:17:13 INFO  : 'configparams force-mem-access 0' command is executed.
+16:17:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:17:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:13 INFO  : 'con' command is executed.
+16:17:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:17:13 INFO  : Disconnected from the channel tcfchan#11.
+16:17:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:17:41 INFO  : 'fpga -state' command is executed.
+16:17:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:17:41 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:17:41 INFO  : 'jtag frequency' command is executed.
+16:17:41 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:17:41 INFO  : Context for 'APU' is selected.
+16:17:42 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:17:42 INFO  : 'configparams force-mem-access 1' command is executed.
+16:17:42 INFO  : Context for 'APU' is selected.
+16:17:42 INFO  : 'stop' command is executed.
+16:17:43 INFO  : 'ps7_init' command is executed.
+16:17:43 INFO  : 'ps7_post_config' command is executed.
+16:17:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:43 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:17:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:43 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:17:43 INFO  : 'configparams force-mem-access 0' command is executed.
+16:17:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:17:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:43 INFO  : 'con' command is executed.
+16:17:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:17:43 INFO  : Disconnected from the channel tcfchan#12.
+16:17:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:17:46 INFO  : 'fpga -state' command is executed.
+16:17:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:17:46 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:17:46 INFO  : 'jtag frequency' command is executed.
+16:17:46 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:17:47 INFO  : Context for 'APU' is selected.
+16:17:48 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:17:48 INFO  : 'configparams force-mem-access 1' command is executed.
+16:17:48 INFO  : Context for 'APU' is selected.
+16:17:48 INFO  : 'stop' command is executed.
+16:17:48 INFO  : 'ps7_init' command is executed.
+16:17:48 INFO  : 'ps7_post_config' command is executed.
+16:17:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:48 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:17:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:49 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:17:49 INFO  : 'configparams force-mem-access 0' command is executed.
+16:17:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:17:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:17:49 INFO  : 'con' command is executed.
+16:17:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:17:49 INFO  : Disconnected from the channel tcfchan#13.
+16:18:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:18:44 INFO  : 'fpga -state' command is executed.
+16:18:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:18:44 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:18:44 INFO  : 'jtag frequency' command is executed.
+16:18:44 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:18:44 INFO  : Context for 'APU' is selected.
+16:18:45 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:18:45 INFO  : 'configparams force-mem-access 1' command is executed.
+16:18:45 INFO  : Context for 'APU' is selected.
+16:18:45 INFO  : 'stop' command is executed.
+16:18:46 INFO  : 'ps7_init' command is executed.
+16:18:46 INFO  : 'ps7_post_config' command is executed.
+16:18:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:18:46 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:18:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:18:46 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:18:46 INFO  : 'configparams force-mem-access 0' command is executed.
+16:18:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:18:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:18:46 INFO  : 'con' command is executed.
+16:18:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:18:46 INFO  : Disconnected from the channel tcfchan#14.
+16:22:03 INFO  : Refreshed build settings on project xcp_freertos
+16:22:43 INFO  : Refreshed build settings on project xcp_freertos
+16:23:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:23:37 INFO  : 'fpga -state' command is executed.
+16:23:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:23:37 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:23:37 INFO  : 'jtag frequency' command is executed.
+16:23:37 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:23:37 INFO  : Context for 'APU' is selected.
+16:23:37 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:23:37 INFO  : 'configparams force-mem-access 1' command is executed.
+16:23:37 INFO  : Context for 'APU' is selected.
+16:23:38 INFO  : 'stop' command is executed.
+16:23:38 INFO  : 'ps7_init' command is executed.
+16:23:38 INFO  : 'ps7_post_config' command is executed.
+16:23:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:23:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:23:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:23:38 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:23:38 INFO  : 'configparams force-mem-access 0' command is executed.
+16:23:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:23:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:23:38 INFO  : 'con' command is executed.
+16:23:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:23:38 INFO  : Disconnected from the channel tcfchan#15.
+16:28:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:28:24 INFO  : 'fpga -state' command is executed.
+16:28:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:28:24 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:28:24 INFO  : 'jtag frequency' command is executed.
+16:28:24 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:28:24 INFO  : Context for 'APU' is selected.
+16:28:26 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:28:26 INFO  : 'configparams force-mem-access 1' command is executed.
+16:28:26 INFO  : Context for 'APU' is selected.
+16:28:26 INFO  : 'stop' command is executed.
+16:28:26 INFO  : 'ps7_init' command is executed.
+16:28:26 INFO  : 'ps7_post_config' command is executed.
+16:28:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:28:26 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:28:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:28:27 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:28:27 INFO  : 'configparams force-mem-access 0' command is executed.
+16:28:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:28:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:28:27 INFO  : 'con' command is executed.
+16:28:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:28:27 INFO  : Disconnected from the channel tcfchan#16.
+16:29:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:29:08 INFO  : 'fpga -state' command is executed.
+16:29:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:29:08 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:29:08 INFO  : 'jtag frequency' command is executed.
+16:29:08 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:29:08 INFO  : Context for 'APU' is selected.
+16:29:08 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:29:08 INFO  : 'configparams force-mem-access 1' command is executed.
+16:29:08 INFO  : Context for 'APU' is selected.
+16:29:08 INFO  : 'stop' command is executed.
+16:29:08 INFO  : 'ps7_init' command is executed.
+16:29:08 INFO  : 'ps7_post_config' command is executed.
+16:29:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:29:08 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:29:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:29:09 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:29:09 INFO  : 'configparams force-mem-access 0' command is executed.
+16:29:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:29:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:29:09 INFO  : 'con' command is executed.
+16:29:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:29:09 INFO  : Disconnected from the channel tcfchan#17.
+16:34:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:34:16 INFO  : 'fpga -state' command is executed.
+16:34:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:34:16 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:34:16 INFO  : 'jtag frequency' command is executed.
+16:34:16 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:34:16 INFO  : Context for 'APU' is selected.
+16:34:17 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:34:17 INFO  : 'configparams force-mem-access 1' command is executed.
+16:34:17 INFO  : Context for 'APU' is selected.
+16:34:18 INFO  : 'stop' command is executed.
+16:34:18 INFO  : 'ps7_init' command is executed.
+16:34:18 INFO  : 'ps7_post_config' command is executed.
+16:34:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:34:18 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:34:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:34:18 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:34:18 INFO  : 'configparams force-mem-access 0' command is executed.
+16:34:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:34:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:34:18 INFO  : 'con' command is executed.
+16:34:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:34:18 INFO  : Disconnected from the channel tcfchan#18.
+16:35:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:35:58 INFO  : 'fpga -state' command is executed.
+16:35:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:35:58 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:35:58 INFO  : 'jtag frequency' command is executed.
+16:35:58 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:35:58 INFO  : Context for 'APU' is selected.
+16:35:59 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:35:59 INFO  : 'configparams force-mem-access 1' command is executed.
+16:36:00 INFO  : Context for 'APU' is selected.
+16:36:00 INFO  : 'stop' command is executed.
+16:36:00 INFO  : 'ps7_init' command is executed.
+16:36:00 INFO  : 'ps7_post_config' command is executed.
+16:36:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:00 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:36:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:00 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:36:00 INFO  : 'configparams force-mem-access 0' command is executed.
+16:36:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:36:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:00 INFO  : 'con' command is executed.
+16:36:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:36:00 INFO  : Disconnected from the channel tcfchan#19.
+16:36:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:36:53 INFO  : 'fpga -state' command is executed.
+16:36:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:36:53 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:36:53 INFO  : 'jtag frequency' command is executed.
+16:36:53 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:36:53 INFO  : Context for 'APU' is selected.
+16:36:53 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:36:53 INFO  : 'configparams force-mem-access 1' command is executed.
+16:36:53 INFO  : Context for 'APU' is selected.
+16:36:53 INFO  : 'stop' command is executed.
+16:36:54 INFO  : 'ps7_init' command is executed.
+16:36:54 INFO  : 'ps7_post_config' command is executed.
+16:36:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:54 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:36:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:54 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:36:54 INFO  : 'configparams force-mem-access 0' command is executed.
+16:36:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:36:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:36:54 INFO  : 'con' command is executed.
+16:36:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:36:54 INFO  : Disconnected from the channel tcfchan#20.
+16:38:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:38:31 INFO  : 'fpga -state' command is executed.
+16:38:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:38:31 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:38:31 INFO  : 'jtag frequency' command is executed.
+16:38:31 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:38:31 INFO  : Context for 'APU' is selected.
+16:38:32 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:38:32 INFO  : 'configparams force-mem-access 1' command is executed.
+16:38:32 INFO  : Context for 'APU' is selected.
+16:38:33 INFO  : 'stop' command is executed.
+16:38:33 INFO  : 'ps7_init' command is executed.
+16:38:33 INFO  : 'ps7_post_config' command is executed.
+16:38:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:38:33 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:38:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:38:33 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:38:33 INFO  : 'configparams force-mem-access 0' command is executed.
+16:38:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:38:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:38:33 INFO  : 'con' command is executed.
+16:38:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:38:33 INFO  : Disconnected from the channel tcfchan#21.
+16:39:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:39:14 INFO  : 'fpga -state' command is executed.
+16:39:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:39:14 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:39:14 INFO  : 'jtag frequency' command is executed.
+16:39:14 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:39:14 INFO  : Context for 'APU' is selected.
+16:39:15 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:39:15 INFO  : 'configparams force-mem-access 1' command is executed.
+16:39:16 INFO  : Context for 'APU' is selected.
+16:39:16 INFO  : 'stop' command is executed.
+16:39:16 INFO  : 'ps7_init' command is executed.
+16:39:16 INFO  : 'ps7_post_config' command is executed.
+16:39:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:16 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:39:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:16 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:39:16 INFO  : 'configparams force-mem-access 0' command is executed.
+16:39:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:39:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:16 INFO  : 'con' command is executed.
+16:39:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:39:16 INFO  : Disconnected from the channel tcfchan#22.
+16:39:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:39:43 INFO  : 'fpga -state' command is executed.
+16:39:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:39:43 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:39:43 INFO  : 'jtag frequency' command is executed.
+16:39:43 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:39:43 INFO  : Context for 'APU' is selected.
+16:39:45 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:39:45 INFO  : 'configparams force-mem-access 1' command is executed.
+16:39:45 INFO  : Context for 'APU' is selected.
+16:39:45 INFO  : 'stop' command is executed.
+16:39:45 INFO  : 'ps7_init' command is executed.
+16:39:45 INFO  : 'ps7_post_config' command is executed.
+16:39:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:39:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:46 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:39:46 INFO  : 'configparams force-mem-access 0' command is executed.
+16:39:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:39:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:39:46 INFO  : 'con' command is executed.
+16:39:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:39:46 INFO  : Disconnected from the channel tcfchan#23.
+16:40:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:40:06 INFO  : 'fpga -state' command is executed.
+16:40:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:40:06 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:40:06 INFO  : 'jtag frequency' command is executed.
+16:40:06 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:40:06 INFO  : Context for 'APU' is selected.
+16:40:08 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:40:08 INFO  : 'configparams force-mem-access 1' command is executed.
+16:40:08 INFO  : Context for 'APU' is selected.
+16:40:08 INFO  : 'stop' command is executed.
+16:40:08 INFO  : 'ps7_init' command is executed.
+16:40:08 INFO  : 'ps7_post_config' command is executed.
+16:40:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:40:08 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:40:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:40:09 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:40:09 INFO  : 'configparams force-mem-access 0' command is executed.
+16:40:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:40:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:40:09 INFO  : 'con' command is executed.
+16:40:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:40:09 INFO  : Disconnected from the channel tcfchan#24.
+16:41:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:41:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:41:18 INFO  : FPGA configured successfully with bitstream "C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+16:41:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+16:41:21 INFO  : 'fpga -state' command is executed.
+16:41:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:41:21 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+16:41:21 INFO  : 'jtag frequency' command is executed.
+16:41:21 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:41:21 INFO  : Context for 'APU' is selected.
+16:41:21 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:41:21 INFO  : 'configparams force-mem-access 1' command is executed.
+16:41:21 INFO  : Context for 'APU' is selected.
+16:41:21 INFO  : 'stop' command is executed.
+16:41:22 INFO  : 'ps7_init' command is executed.
+16:41:22 INFO  : 'ps7_post_config' command is executed.
+16:41:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:41:22 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+16:41:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:41:22 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:41:22 INFO  : 'configparams force-mem-access 0' command is executed.
+16:41:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:41:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:41:22 INFO  : 'con' command is executed.
+16:41:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+16:41:22 INFO  : Disconnected from the channel tcfchan#25.
+17:04:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+17:04:20 INFO  : 'fpga -state' command is executed.
+17:04:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:04:20 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+17:04:20 INFO  : 'jtag frequency' command is executed.
+17:04:20 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:04:20 INFO  : Context for 'APU' is selected.
+17:04:22 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:04:22 INFO  : 'configparams force-mem-access 1' command is executed.
+17:04:22 INFO  : Context for 'APU' is selected.
+17:04:22 INFO  : 'stop' command is executed.
+17:04:23 INFO  : 'ps7_init' command is executed.
+17:04:23 INFO  : 'ps7_post_config' command is executed.
+17:04:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:04:23 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+17:04:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:04:23 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:04:23 INFO  : 'configparams force-mem-access 0' command is executed.
+17:04:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:04:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:04:23 INFO  : 'con' command is executed.
+17:04:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+17:04:23 INFO  : Disconnected from the channel tcfchan#26.
+17:07:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+17:07:45 INFO  : 'fpga -state' command is executed.
+17:07:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:07:45 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+17:07:45 INFO  : 'jtag frequency' command is executed.
+17:07:45 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:07:45 INFO  : Context for 'APU' is selected.
+17:07:47 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:07:47 INFO  : 'configparams force-mem-access 1' command is executed.
+17:07:47 INFO  : Context for 'APU' is selected.
+17:07:47 INFO  : 'stop' command is executed.
+17:07:48 INFO  : 'ps7_init' command is executed.
+17:07:48 INFO  : 'ps7_post_config' command is executed.
+17:07:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:07:48 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+17:07:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:07:48 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:07:48 INFO  : 'configparams force-mem-access 0' command is executed.
+17:07:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:07:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:07:48 INFO  : 'con' command is executed.
+17:07:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+17:07:48 INFO  : Disconnected from the channel tcfchan#27.
+17:12:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+17:12:41 INFO  : 'fpga -state' command is executed.
+17:12:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:12:41 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+17:12:41 INFO  : 'jtag frequency' command is executed.
+17:12:41 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:12:41 INFO  : Context for 'APU' is selected.
+17:12:41 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:12:41 INFO  : 'configparams force-mem-access 1' command is executed.
+17:12:41 INFO  : Context for 'APU' is selected.
+17:12:41 INFO  : 'stop' command is executed.
+17:12:42 INFO  : 'ps7_init' command is executed.
+17:12:42 INFO  : 'ps7_post_config' command is executed.
+17:12:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:12:42 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+17:12:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:12:42 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:12:42 INFO  : 'configparams force-mem-access 0' command is executed.
+17:12:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:12:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:12:42 INFO  : 'con' command is executed.
+17:12:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+17:12:42 INFO  : Disconnected from the channel tcfchan#28.
+17:14:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248AC8873" && level==0} -index 1' command is executed.
+17:14:48 INFO  : 'fpga -state' command is executed.
+17:14:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:14:48 INFO  : Jtag cable 'Digilent Zed 210248AC8873' is selected.
+17:14:48 INFO  : 'jtag frequency' command is executed.
+17:14:48 INFO  : Sourcing of 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:14:48 INFO  : Context for 'APU' is selected.
+17:14:50 INFO  : Hardware design information is loaded from 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:14:50 INFO  : 'configparams force-mem-access 1' command is executed.
+17:14:50 INFO  : Context for 'APU' is selected.
+17:14:50 INFO  : 'stop' command is executed.
+17:14:51 INFO  : 'ps7_init' command is executed.
+17:14:51 INFO  : 'ps7_post_config' command is executed.
+17:14:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:14:51 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+17:14:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:14:51 INFO  : The application 'C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:14:51 INFO  : 'configparams force-mem-access 0' command is executed.
+17:14:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+loadhw -hw C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+dow C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/xcp_freertos/Debug/xcp_freertos.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:14:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:14:51 INFO  : 'con' command is executed.
+17:14:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248AC8873"} -index 0
+con
+----------------End of Script----------------
+
+17:14:51 INFO  : Disconnected from the channel tcfchan#29.
