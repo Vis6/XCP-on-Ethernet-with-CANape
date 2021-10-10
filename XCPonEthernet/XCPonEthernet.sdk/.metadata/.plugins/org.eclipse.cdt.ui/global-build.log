@@ -731,3 +731,629 @@ arm-none-eabi-size xcp_freertos.elf  |tee "xcp_freertos.elf.size"
   89636	   4180	  89424	 183240	  2cbc8	xcp_freertos.elf
 'Finished building: xcp_freertos.elf.size'
 ' '
+13:52:46 **** Clean-only build of configuration Debug for project xcp_standalone ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  xcp_standalone.elf.size  xcp_standalone.elf
+' '
+13:52:46 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/platform.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: xcp_standalone.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp_standalone.elf  |tee "xcp_standalone.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19352	   1144	  22568	  43064	   a838	xcp_standalone.elf
+'Finished building: xcp_standalone.elf.size'
+' '
+14:06:18 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/platform.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendCrm':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:610: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:624: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:627: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendEv':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:652: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:666: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:670: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDto':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:699: undefined reference to `ApplXcpSend'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDtoFromQueue':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:717: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:728: undefined reference to `ApplXcpInterruptEnable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:731: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1345: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1508: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:06:54 **** Clean-only build of configuration Debug for project xcp_standalone ****
+make clean 
+rm -rf  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/platform.o ./src/xcp_standalone_main.o  ./src/XCP_Basic_Driver/XcpBasic.d ./src/XCP_Basic_Driver/_xcp_appl.d ./src/XCP_Basic_Driver/xcp_par.d  ./src/platform.d ./src/xcp_standalone_main.d  xcp_standalone.elf.size  xcp_standalone.elf
+' '
+14:06:55 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/platform.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendCrm':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:610: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:624: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:627: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendEv':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:652: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:666: undefined reference to `ApplXcpSend'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:670: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDto':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:699: undefined reference to `ApplXcpSend'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpSendDtoFromQueue':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:717: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:728: undefined reference to `ApplXcpInterruptEnable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:731: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1345: undefined reference to `ApplXcpInterruptDisable'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1508: undefined reference to `ApplXcpInterruptEnable'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:07:43 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/UDP_IP.d" -MT"src/UDP_IP.o" -o "src/UDP_IP.o" "../src/UDP_IP.c"
+../src/UDP_IP.c: In function 'start_application':
+../src/UDP_IP.c:181:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/UDP_IP.c:10:0:
+../../xcp_standalone_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/UDP_IP.c:171:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/UDP_IP.c'
+' '
+'Building file: ../src/xcp_measure_calibrate.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_measure_calibrate.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_measure_calibrate.d" -MT"src/xcp_measure_calibrate.o" -o "src/xcp_measure_calibrate.o" "../src/xcp_measure_calibrate.c"
+../src/xcp_measure_calibrate.c: In function 'floatToUFix':
+../src/xcp_measure_calibrate.c:67:30: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+  u32 res = (u32)((int)data * pow(2.0, fraction)) + (u32)((data - (int)data) * pow(2.0, fraction));
+                              ^~~
+../src/xcp_measure_calibrate.c:67:30: warning: incompatible implicit declaration of built-in function 'pow'
+../src/xcp_measure_calibrate.c:67:30: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'floatToSFix':
+../src/xcp_measure_calibrate.c:74:19: warning: incompatible implicit declaration of built-in function 'pow'
+  int res = data * pow(2.0, fraction);
+                   ^~~
+../src/xcp_measure_calibrate.c:74:19: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'uFixToFloat':
+../src/xcp_measure_calibrate.c:81:21: warning: incompatible implicit declaration of built-in function 'pow'
+  float res = data / pow(2.0, fraction);
+                     ^~~
+../src/xcp_measure_calibrate.c:81:21: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'sFixToFloat':
+../src/xcp_measure_calibrate.c:88:21: warning: incompatible implicit declaration of built-in function 'pow'
+  float res = data / pow(2.0, fraction);
+                     ^~~
+../src/xcp_measure_calibrate.c:88:21: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'floatToIeeeFloat':
+../src/xcp_measure_calibrate.c:99:30: warning: incompatible implicit declaration of built-in function 'pow'
+  u32 sign = var.field.sign * pow(2.0, 31.0);
+                              ^~~
+../src/xcp_measure_calibrate.c:99:30: note: include '<math.h>' or provide a declaration of 'pow'
+'Finished building: ../src/xcp_measure_calibrate.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+./src/UDP_IP.o: In function `ApplXcpSend':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `recv_callback':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `start_application':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
+./src/xcp_measure_calibrate.o: In function `floatToUFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `floatToSFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `uFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `sFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:09:14 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+../src/xcp_standalone_main.c: In function 'main':
+../src/xcp_standalone_main.c:119:2: warning: implicit declaration of function 'lwip_init'; did you mean 'ip_init'? [-Wimplicit-function-declaration]
+  lwip_init();
+  ^~~~~~~~~
+  ip_init
+../src/xcp_standalone_main.c:135:2: warning: implicit declaration of function 'start_application' [-Wimplicit-function-declaration]
+  start_application();
+  ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+./src/UDP_IP.o: In function `ApplXcpSend':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `recv_callback':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `start_application':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
+./src/xcp_measure_calibrate.o: In function `floatToUFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `floatToSFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `uFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `sFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
+./src/xcp_standalone_main.o: In function `main':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:119: undefined reference to `lwip_init'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:122: undefined reference to `xemac_add'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:125: undefined reference to `netif_set_default'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:130: undefined reference to `netif_set_up'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:09:24 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+../src/xcp_standalone_main.c: In function 'main':
+../src/xcp_standalone_main.c:120:2: warning: implicit declaration of function 'lwip_init'; did you mean 'ip_init'? [-Wimplicit-function-declaration]
+  lwip_init();
+  ^~~~~~~~~
+  ip_init
+../src/xcp_standalone_main.c:136:2: warning: implicit declaration of function 'start_application' [-Wimplicit-function-declaration]
+  start_application();
+  ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+./src/UDP_IP.o: In function `ApplXcpSend':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `recv_callback':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `start_application':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
+./src/xcp_measure_calibrate.o: In function `floatToUFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `floatToSFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `uFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `sFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
+./src/xcp_standalone_main.o: In function `main':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:120: undefined reference to `lwip_init'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:123: undefined reference to `xemac_add'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:126: undefined reference to `netif_set_default'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:131: undefined reference to `netif_set_up'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:09:36 **** Auto Build of project xcp_standalone_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/lwip202_v1_1/src"
+make -C ps7_cortexa9_0/libsrc/lwip202_v1_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/lwip202_v1_1/src"
+make -C ps7_cortexa9_0/libsrc/lwip202_v1_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling lwip src and adapter files"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+In file included from sleep.c:57:0:
+xtime_l.h:89:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from usleep.c:60:0:
+xtime_l.h:89:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:55:0:
+xtime_l.h:89:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xtime_l.c:53:0:
+xtime_l.h:89:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+14:10:00 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/UDP_IP.d" -MT"src/UDP_IP.o" -o "src/UDP_IP.o" "../src/UDP_IP.c"
+../src/UDP_IP.c: In function 'start_application':
+../src/UDP_IP.c:181:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/UDP_IP.c:10:0:
+../../xcp_standalone_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/UDP_IP.c:171:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/UDP_IP.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/xcp_measure_calibrate.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_measure_calibrate.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_measure_calibrate.d" -MT"src/xcp_measure_calibrate.o" -o "src/xcp_measure_calibrate.o" "../src/xcp_measure_calibrate.c"
+../src/xcp_measure_calibrate.c: In function 'floatToUFix':
+../src/xcp_measure_calibrate.c:67:30: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+  u32 res = (u32)((int)data * pow(2.0, fraction)) + (u32)((data - (int)data) * pow(2.0, fraction));
+                              ^~~
+../src/xcp_measure_calibrate.c:67:30: warning: incompatible implicit declaration of built-in function 'pow'
+../src/xcp_measure_calibrate.c:67:30: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'floatToSFix':
+../src/xcp_measure_calibrate.c:74:19: warning: incompatible implicit declaration of built-in function 'pow'
+  int res = data * pow(2.0, fraction);
+                   ^~~
+../src/xcp_measure_calibrate.c:74:19: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'uFixToFloat':
+../src/xcp_measure_calibrate.c:81:21: warning: incompatible implicit declaration of built-in function 'pow'
+  float res = data / pow(2.0, fraction);
+                     ^~~
+../src/xcp_measure_calibrate.c:81:21: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'sFixToFloat':
+../src/xcp_measure_calibrate.c:88:21: warning: incompatible implicit declaration of built-in function 'pow'
+  float res = data / pow(2.0, fraction);
+                     ^~~
+../src/xcp_measure_calibrate.c:88:21: note: include '<math.h>' or provide a declaration of 'pow'
+../src/xcp_measure_calibrate.c: In function 'floatToIeeeFloat':
+../src/xcp_measure_calibrate.c:99:30: warning: incompatible implicit declaration of built-in function 'pow'
+  u32 sign = var.field.sign * pow(2.0, 31.0);
+                              ^~~
+../src/xcp_measure_calibrate.c:99:30: note: include '<math.h>' or provide a declaration of 'pow'
+'Finished building: ../src/xcp_measure_calibrate.c'
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+../src/xcp_standalone_main.c: In function 'main':
+../src/xcp_standalone_main.c:120:2: warning: implicit declaration of function 'lwip_init'; did you mean 'ip_init'? [-Wimplicit-function-declaration]
+  lwip_init();
+  ^~~~~~~~~
+  ip_init
+../src/xcp_standalone_main.c:136:2: warning: implicit declaration of function 'start_application' [-Wimplicit-function-declaration]
+  start_application();
+  ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+./src/UDP_IP.o: In function `ApplXcpSend':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `recv_callback':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `start_application':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
+./src/xcp_measure_calibrate.o: In function `floatToUFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `floatToSFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `uFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `sFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
+./src/xcp_standalone_main.o: In function `main':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:120: undefined reference to `lwip_init'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:123: undefined reference to `xemac_add'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:126: undefined reference to `netif_set_default'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:131: undefined reference to `netif_set_up'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
+14:11:31 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+../src/xcp_standalone_main.c: In function 'main':
+../src/xcp_standalone_main.c:120:2: warning: implicit declaration of function 'lwip_init'; did you mean 'ip_init'? [-Wimplicit-function-declaration]
+  lwip_init();
+  ^~~~~~~~~
+  ip_init
+../src/xcp_standalone_main.c:136:2: warning: implicit declaration of function 'start_application' [-Wimplicit-function-declaration]
+  start_application();
+  ^~~~~~~~~~~~~~~~~
+../src/xcp_standalone_main.c:143:2: warning: implicit declaration of function 'calibrateVarsInit'; did you mean 'calibarteVarsInit'? [-Wimplicit-function-declaration]
+  calibrateVarsInit();
+  ^~~~~~~~~~~~~~~~~
+  calibarteVarsInit
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
+./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
+./src/UDP_IP.o: In function `ApplXcpSend':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `recv_callback':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
+./src/UDP_IP.o: In function `start_application':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
+./src/xcp_measure_calibrate.o: In function `floatToUFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `floatToSFix':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `uFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
+./src/xcp_measure_calibrate.o: In function `sFixToFloat':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
+./src/xcp_standalone_main.o: In function `main':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:120: undefined reference to `lwip_init'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:123: undefined reference to `xemac_add'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:126: undefined reference to `netif_set_default'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:131: undefined reference to `netif_set_up'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:143: undefined reference to `calibrateVarsInit'
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:153: undefined reference to `xemacif_input'
+collect2.exe: error: ld returned 1 exit status
+make: *** [xcp_standalone.elf] Error 1
