@@ -3121,3 +3121,28 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+15:02:25 **** Auto Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xcp_measure_calibrate.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_measure_calibrate.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_measure_calibrate.d" -MT"src/xcp_measure_calibrate.o" -o "src/xcp_measure_calibrate.o" "../src/xcp_measure_calibrate.c"
+'Finished building: ../src/xcp_measure_calibrate.c'
+' '
+'Building file: ../src/xcp_standalone_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
+'Finished building: ../src/xcp_standalone_main.c'
+' '
+'Building target: xcp_standalone.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp_standalone.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp_standalone.elf  |tee "xcp_standalone.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 111252	   3824	2152768	2267844	 229ac4	xcp_standalone.elf
+'Finished building: xcp_standalone.elf.size'
+' '
