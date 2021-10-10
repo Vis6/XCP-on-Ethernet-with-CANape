@@ -64,8 +64,6 @@
 static int task_flag = 0;
 static int timer_counter = 0;
 
-int signal = 0;
-
 /*
  * Ethernet.
  */
@@ -187,11 +185,6 @@ int main()
 			/*
 			 * Do something.
 			 */
-			XcpEvent(1); // XCP DAQ event - 2ms
-
-			// update signal value for every 2ms
-			if (++signal == 100)
-				signal = 0;
 		}
 
 		/*
@@ -210,12 +203,9 @@ int main()
 void TimerIntrHandler(XScuTimer *TimerInstance)
 {
 	XCP_100us_Counter++;
-//	XcpEvent(0); // XCP DAQ event - 100us
+	XcpEvent(0); // XCP DAQ event - 100us
 
-	/*
-	 * Call task function for every 2ms.
-	 */
-	if (++timer_counter == 20) {
+	if (++timer_counter == 10) {
 		task_flag = 1;
 		timer_counter = 0;
 	}

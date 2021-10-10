@@ -187,9 +187,7 @@ int main()
 			/*
 			 * Do something.
 			 */
-			XcpEvent(1); // XCP DAQ event - 2ms
-
-			// update signal value for every 2ms
+			XcpEvent(1);
 			if (++signal == 100)
 				signal = 0;
 		}
@@ -212,9 +210,6 @@ void TimerIntrHandler(XScuTimer *TimerInstance)
 	XCP_100us_Counter++;
 //	XcpEvent(0); // XCP DAQ event - 100us
 
-	/*
-	 * Call task function for every 2ms.
-	 */
 	if (++timer_counter == 20) {
 		task_flag = 1;
 		timer_counter = 0;

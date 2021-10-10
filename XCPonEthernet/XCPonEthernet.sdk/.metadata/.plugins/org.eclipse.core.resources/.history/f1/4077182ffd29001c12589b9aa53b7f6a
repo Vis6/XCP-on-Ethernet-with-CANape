@@ -57,14 +57,17 @@
 #include "xcpBasic.h"
 #include "sleep.h"
 
+#ifndef _XCP_MEASURE_CALIBRATE_H_
+#define _XCP_MEASURE_CALIBRATE_H_
+#include "xcp_measure_calibrate.h"
+#endif
+
 
 /*
  * XCP task control.
  */
 static int task_flag = 0;
 static int timer_counter = 0;
-
-int signal = 0;
 
 /*
  * Ethernet.
@@ -180,6 +183,8 @@ int main()
 	 */
 	XcpInit();
 
+	calibrateVarsInit();
+
 	while (1) {
 		if (task_flag) {
 			task_flag = 0;
@@ -187,11 +192,6 @@ int main()
 			/*
 			 * Do something.
 			 */
-			XcpEvent(1); // XCP DAQ event - 2ms
-
-			// update signal value for every 2ms
-			if (++signal == 100)
-				signal = 0;
 		}
 
 		/*
@@ -209,13 +209,11 @@ int main()
  */
 void TimerIntrHandler(XScuTimer *TimerInstance)
 {
+	xcpVarsRead100us();
 	XCP_100us_Counter++;
-//	XcpEvent(0); // XCP DAQ event - 100us
+	XcpEvent(0); // XCP DAQ event - 100us
 
-	/*
-	 * Call task function for every 2ms.
-	 */
-	if (++timer_counter == 20) {
+	if (++timer_counter == 10) {
 		task_flag = 1;
 		timer_counter = 0;
 	}

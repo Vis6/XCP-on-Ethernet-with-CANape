@@ -13,8 +13,6 @@
     &lt;ExportSettings&gt;
       &lt;InputTemplateFile /&gt;
       &lt;OutputFileName /&gt;
-      &lt;OverwriteFile&gt;false&lt;/OverwriteFile&gt;
-      &lt;OpenInToolAfterExport&gt;false&lt;/OpenInToolAfterExport&gt;
       &lt;ReplaceSheet&gt;false&lt;/ReplaceSheet&gt;
       &lt;SheetName /&gt;
       &lt;ManualColumnFieldNames /&gt;
@@ -24,6 +22,9 @@
     &lt;/QueryString&gt;
   &lt;/CollectionLayout&gt;
   &lt;DockLayout DetailsHeight="170" DetailsExpanded="false" SelectedFilterTabIndex="0" /&gt;
+  &lt;ReportGridLayout&gt;
+    &lt;ReportGridLayoutData /&gt;
+  &lt;/ReportGridLayout&gt;
   &lt;LastMode&gt;
     &lt;LastCollectionIdInSearch&gt;local&lt;/LastCollectionIdInSearch&gt;
   &lt;/LastMode&gt;

@@ -187,9 +187,7 @@ int main()
 			/*
 			 * Do something.
 			 */
-			XcpEvent(1); // XCP DAQ event - 2ms
-
-			// update signal value for every 2ms
+			XcpEvent(1);
 			if (++signal == 100)
 				signal = 0;
 		}
