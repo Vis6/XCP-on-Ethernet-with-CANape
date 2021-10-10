@@ -237,3 +237,5 @@ con
 15:26:51 INFO  : Successfully done setting SDK workspace  
 15:26:51 INFO  : Processing command line option -hwspec C:/Users/xzhan134/Documents/GitHub/XCP-on-Ethernet-with-CANape/XCPonEthernet/XCPonEthernet.sdk/design_1_wrapper.hdf.
 15:26:51 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+15:38:41 INFO  : Refreshed build settings on project xcp_freertos
+15:39:26 INFO  : Refreshed build settings on project xcp_freertos
