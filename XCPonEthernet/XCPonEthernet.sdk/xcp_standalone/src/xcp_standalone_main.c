@@ -57,16 +57,17 @@
 #include "xcpBasic.h"
 #include "sleep.h"
 
-#ifndef _MATH_H_
-#define _MATH_H_
-#include <math.h>
-#endif
-
 #ifndef _XCP_MEASURE_CALIBRATE_H_
 #define _XCP_MEASURE_CALIBRATE_H_
 #include "xcp_measure_calibrate.h"
 #endif
 
+
+/*
+ * XCP task control.
+ */
+static int task_flag = 0;
+static int timer_counter = 0;
 
 /*
  * Ethernet.
@@ -79,11 +80,43 @@ static struct netif server_netif;
 struct netif *echo_netif;
 
 // Global variables for ethernet handling
-struct ip4_addr remote_addr;
+struct ip4_addr RemoteAddr;
 
-u32 xcp_100us_counter = 0;
+u32 XCP_100us_Counter = 0;
+
+int start_application();
+void lwip_init();
+void XcpInit(void);
+
+/*
+ * Interrupt controller.
+ */
+#define INTC_DEVICE_ID			XPAR_PS7_SCUGIC_0_DEVICE_ID
+#define INTC_BASE_ADDR			XPAR_SCUGIC_0_CPU_BASEADDR
+#define INTC_DIST_BASE_ADDR		XPAR_SCUGIC_0_DIST_BASEADDR
+#define XIL_EXCEPTION_ID_INT	XIL_EXCEPTION_ID_IRQ_INT
+#define eth_tmr_cnt (XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ/8/TimerLoadValue) // Counter for reading the Ethernet Status registers
+
+static XScuGic Intc; // interrupt_test Device driver instance
+
+void interruptSetup();
+void enableInterrupt();
+
+/*
+ * Timer setup.
+ */
+#define TIMER_DEVICE_ID			XPAR_SCUTIMER_DEVICE_ID
+#define TIMER_IRPT_INTR			XPAR_SCUTIMER_INTR
+#define	TimerLoadValue			(XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ/2*0.0001) // 100us interrupt - The last number represents the period of the timer
+
+static XScuTimer TimerInstance; // ARM private timer
+
+void timerIntrHandler(XScuTimer *TimerInstance);
 
 
+/*
+ * Main function.
+ */
 int main()
 {
     init_platform();
@@ -104,6 +137,11 @@ int main()
     echo_netif = &server_netif;
 
     /*
+     * Setup timer interrupt
+     */
+    interruptSetup();
+
+    /*
      * Initialize IP address to be used.
      */
     // IP address of ZYNQ7000
@@ -112,7 +150,7 @@ int main()
 	IP4_ADDR(&gw, 192, 168, 1, 1);
 
 	// IP address of the PC
-	IP4_ADDR(&remote_addr, 192, 168, 1, 11);
+	IP4_ADDR(&RemoteAddr, 192, 168, 1, 11);
 
 	/*
 	 * Initialize the lwip for UDP.
@@ -124,6 +162,11 @@ int main()
 		return -1;
 	}
 	netif_set_default(echo_netif);
+
+	/*
+	 * Enable timer interrupt.
+	 */
+	enableInterrupt();
 
 	/*
 	 * Specify that the network if it's up.
@@ -143,9 +186,14 @@ int main()
 	calibrateVarsInit();
 
 	while (1) {
-		/*
-		 * Do something.
-		 */
+		if (task_flag) {
+			/*
+			 * Do something.
+			 */
+			task_flag = 0;
+			XcpEvent(0);
+			xcpVarsUpdate();
+		}
 
 		/*
 		 * Receive packets.
@@ -155,4 +203,71 @@ int main()
 
     cleanup_platform();
     return 0;
+}
+
+/*
+ * Other functions definition.
+ */
+void TimerIntrHandler(XScuTimer *TimerInstance)
+{
+	xcpVarsRead100us();
+	XCP_100us_Counter++;
+	XcpEvent(0); // XCP DAQ event - 100us
+
+	if (++timer_counter == 10) {
+		task_flag = 1;
+		timer_counter = 0;
+	}
+
+	XScuTimer_ClearInterruptStatus(TimerInstance); // clear interrupt
+}
+
+void interruptSetup()
+{
+	int status;
+
+	/* GIC Initialize */
+	XScuGic_Config *IntcConfig;
+	Xil_ExceptionInit();
+
+	// interrupt controller initialization
+	IntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	status = XScuGic_CfgInitialize(&Intc, IntcConfig, IntcConfig->CpuBaseAddress);
+	if (status != XST_SUCCESS)
+		xil_printf("GIC initialization failed...\r\n");
+
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+			(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+			&Intc);
+
+	// Set up timer
+	XScuTimer_Config *TimerConfigPtr;
+	TimerConfigPtr = XScuTimer_LookupConfig(TIMER_DEVICE_ID);
+	status = XScuTimer_CfgInitialize(&TimerInstance, TimerConfigPtr, TimerConfigPtr->BaseAddr);
+	if (status != XST_SUCCESS)
+		xil_printf("ScuTimer initialization failed...\r\n");
+
+	status = XScuTimer_SelfTest(&TimerInstance);
+	if (status != XST_SUCCESS)
+		xil_printf("ScuTimer self test failed...\r\n");
+
+	XScuTimer_EnableAutoReload(&TimerInstance);
+	XScuTimer_LoadTimer(&TimerInstance, TimerLoadValue);
+
+	/*
+	 * Connect the device driver handler that will be called when an
+	 * interrupt for the device occurs, the handler defined above performs
+	 * the specific interrupt processing for the device.
+	 */
+	status = XScuGic_Connect(&Intc, TIMER_IRPT_INTR,
+					  	  	 (Xil_ExceptionHandler)TimerIntrHandler,
+					  	  	 (void *)&TimerInstance);
+	XScuGic_Enable(&Intc, TIMER_IRPT_INTR);
+}
+
+void enableInterrupt()
+{
+	XScuTimer_EnableInterrupt(&TimerInstance); //enable interrupt on the timer
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ); // enable interrupts in the processor
+	XScuTimer_Start(&TimerInstance); // start timer
 }

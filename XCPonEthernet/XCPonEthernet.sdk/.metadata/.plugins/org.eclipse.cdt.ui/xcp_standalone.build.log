@@ -1,68 +1,8 @@
-14:11:31 **** Auto Build of configuration Debug for project xcp_standalone ****
+14:45:45 **** Incremental Build of configuration Debug for project xcp_standalone ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/xcp_standalone_main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/xcp_standalone_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcp_standalone_main.d" -MT"src/xcp_standalone_main.o" -o "src/xcp_standalone_main.o" "../src/xcp_standalone_main.c"
-../src/xcp_standalone_main.c: In function 'main':
-../src/xcp_standalone_main.c:120:2: warning: implicit declaration of function 'lwip_init'; did you mean 'ip_init'? [-Wimplicit-function-declaration]
-  lwip_init();
-  ^~~~~~~~~
-  ip_init
-../src/xcp_standalone_main.c:136:2: warning: implicit declaration of function 'start_application' [-Wimplicit-function-declaration]
-  start_application();
-  ^~~~~~~~~~~~~~~~~
-../src/xcp_standalone_main.c:143:2: warning: implicit declaration of function 'calibrateVarsInit'; did you mean 'calibarteVarsInit'? [-Wimplicit-function-declaration]
-  calibrateVarsInit();
-  ^~~~~~~~~~~~~~~~~
-  calibarteVarsInit
-'Finished building: ../src/xcp_standalone_main.c'
-' '
-'Building target: xcp_standalone.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_measure_calibrate.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpEvent':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:1407: undefined reference to `XCP_100us_Counter'
-./src/XCP_Basic_Driver/XcpBasic.o: In function `XcpCommand':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/XCP_Basic_Driver/XcpBasic.c:3179: undefined reference to `XCP_100us_Counter'
-./src/UDP_IP.o: In function `ApplXcpSend':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:57: undefined reference to `pbuf_alloc'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `RemoteAddr'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:60: undefined reference to `udp_sendto'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:61: undefined reference to `pbuf_free'
-./src/UDP_IP.o: In function `recv_callback':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:147: undefined reference to `udp_disconnect'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:153: undefined reference to `RemoteAddr'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:164: undefined reference to `pbuf_free'
-./src/UDP_IP.o: In function `start_application':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:175: undefined reference to `udp_new'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `ip_addr_any'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:178: undefined reference to `udp_bind'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/UDP_IP.c:181: undefined reference to `udp_recv'
-./src/xcp_measure_calibrate.o: In function `floatToUFix':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:67: undefined reference to `pow'
-./src/xcp_measure_calibrate.o: In function `floatToSFix':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:74: undefined reference to `pow'
-./src/xcp_measure_calibrate.o: In function `uFixToFloat':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:81: undefined reference to `pow'
-./src/xcp_measure_calibrate.o: In function `sFixToFloat':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_measure_calibrate.c:88: undefined reference to `pow'
-./src/xcp_standalone_main.o: In function `main':
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:120: undefined reference to `lwip_init'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:123: undefined reference to `xemac_add'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:126: undefined reference to `netif_set_default'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:131: undefined reference to `netif_set_up'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:143: undefined reference to `calibrateVarsInit'
-C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\Debug/../src/xcp_standalone_main.c:153: undefined reference to `xemacif_input'
-collect2.exe: error: ld returned 1 exit status
-make: *** [xcp_standalone.elf] Error 1
+make: Nothing to be done for `main-build'.
 
-14:11:32 Build Finished (took 994ms)
+14:45:46 Build Finished (took 304ms)
 
