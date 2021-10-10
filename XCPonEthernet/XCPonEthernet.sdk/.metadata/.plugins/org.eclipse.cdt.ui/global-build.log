@@ -3374,3 +3374,8 @@ arm-none-eabi-size xcp_standalone.elf  |tee "xcp_standalone.elf.size"
  111188	   3824	2152768	2267780	 229a84	xcp_standalone.elf
 'Finished building: xcp_standalone.elf.size'
 ' '
+15:24:19 **** Incremental Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
