@@ -1,34 +1,8 @@
-15:37:35 **** Auto Build of configuration Debug for project xcp_standalone ****
+15:51:12 **** Incremental Build of configuration Debug for project xcp_standalone ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/UDP_IP.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\xcp_standalone\src\XCP_Basic_Driver" -c -fmessage-length=0 -MT"src/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_standalone_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/UDP_IP.d" -MT"src/UDP_IP.o" -o "src/UDP_IP.o" "../src/UDP_IP.c"
-../src/UDP_IP.c: In function 'start_application':
-../src/UDP_IP.c:181:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
-  udp_recv(pcb, recv_callback, NULL);
-                ^~~~~~~~~~~~~
-In file included from ../src/UDP_IP.c:10:0:
-../../xcp_standalone_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
- void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
-                  ^~~~~~~~
-../src/UDP_IP.c:171:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
-  err_t err;
-        ^~~
-'Finished building: ../src/UDP_IP.c'
-' '
-'Building target: xcp_standalone.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_standalone_bsp/ps7_cortexa9_0/lib -o "xcp_standalone.elf"  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/UDP_IP.o ./src/platform.o ./src/xcp_standalone_main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
-'Finished building target: xcp_standalone.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size xcp_standalone.elf  |tee "xcp_standalone.elf.size"
-   text	   data	    bss	    dec	    hex	filename
- 111188	   3824	2152768	2267780	 229a84	xcp_standalone.elf
-'Finished building: xcp_standalone.elf.size'
-' '
+make: Nothing to be done for `main-build'.
 
-15:37:37 Build Finished (took 1s.323ms)
+15:51:12 Build Finished (took 307ms)
 
