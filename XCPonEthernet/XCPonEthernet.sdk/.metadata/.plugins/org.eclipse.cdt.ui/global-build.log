@@ -688,3 +688,313 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+21:45:00 **** Incremental Build of configuration Debug for project xcp_freertos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:47:05 **** Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/freertos_hello_world.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/freertos_hello_world.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/freertos_hello_world.d" -MT"src/freertos_hello_world.o" -o "src/freertos_hello_world.o" "../src/freertos_hello_world.c"
+'Finished building: ../src/freertos_hello_world.c'
+' '
+'Building target: test.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "test.elf"  ./src/freertos_hello_world.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: test.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size test.elf  |tee "test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  89636	   4180	  89424	 183240	  2cbc8	test.elf
+'Finished building: test.elf.size'
+' '
+21:47:07 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:48:09 **** Clean-only build of configuration Debug for project test ****
+make clean 
+rm -rf  ./src/freertos_hello_world.o  ./src/freertos_hello_world.d  test.elf.size  test.elf
+' '
+21:48:09 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c:15:10: fatal error: xcpBasic.h: No such file or directory
+ #include "xcpBasic.h"
+          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [src/XCP_Communication/UDP_IP.o] Error 1
+21:48:43 **** Clean-only build of configuration Debug for project test ****
+make clean 
+rm -rf  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/interrupt_task.o ./src/main.o ./src/platform.o  ./src/XCP_Communication/UDP_IP.d ./src/XCP_Communication/xcp_eth_init.d  ./src/XCP_Basic_Driver/XcpBasic.d ./src/XCP_Basic_Driver/_xcp_appl.d ./src/XCP_Basic_Driver/xcp_par.d  ./src/Periodic_Tasks/main_periodic_tasks.d  ./src/PL_LED_Init/led_flash_task.d  ./src/interrupt_task.d ./src/main.d ./src/platform.d  test.elf.size  test.elf
+' '
+21:48:43 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c: In function 'start_application':
+../src/XCP_Communication/UDP_IP.c:180:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/XCP_Communication/UDP_IP.c:10:0:
+../../xcp_freertos_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/XCP_Communication/UDP_IP.c:170:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/XCP_Communication/UDP_IP.c'
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+../src/XCP_Communication/xcp_eth_init.c:24:10: fatal error: xintc.h: No such file or directory
+ #include "xintc.h"
+          ^~~~~~~~~
+compilation terminated.
+make: *** [src/XCP_Communication/xcp_eth_init.o] Error 1
+21:49:23 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+../src/XCP_Communication/xcp_eth_init.c:61:1: error: unknown type name 'XIntc'
+ XIntc Intc;  /* interrupt_test Device driver instance*/
+ ^~~~~
+make: *** [src/XCP_Communication/xcp_eth_init.o] Error 1
+21:49:30 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+'Finished building: ../src/XCP_Communication/xcp_eth_init.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building file: ../src/Periodic_Tasks/main_periodic_tasks.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/Periodic_Tasks/main_periodic_tasks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/Periodic_Tasks/main_periodic_tasks.d" -MT"src/Periodic_Tasks/main_periodic_tasks.o" -o "src/Periodic_Tasks/main_periodic_tasks.o" "../src/Periodic_Tasks/main_periodic_tasks.c"
+'Finished building: ../src/Periodic_Tasks/main_periodic_tasks.c'
+' '
+'Building file: ../src/PL_LED_Init/led_flash_task.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/PL_LED_Init/led_flash_task.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/PL_LED_Init/led_flash_task.d" -MT"src/PL_LED_Init/led_flash_task.o" -o "src/PL_LED_Init/led_flash_task.o" "../src/PL_LED_Init/led_flash_task.c"
+../src/PL_LED_Init/led_flash_task.c:12:10: fatal error: xgpio.h: No such file or directory
+ #include "xgpio.h"
+          ^~~~~~~~~
+compilation terminated.
+make: *** [src/PL_LED_Init/led_flash_task.o] Error 1
+21:49:40 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/PL_LED_Init/led_flash_task.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/PL_LED_Init/led_flash_task.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/PL_LED_Init/led_flash_task.d" -MT"src/PL_LED_Init/led_flash_task.o" -o "src/PL_LED_Init/led_flash_task.o" "../src/PL_LED_Init/led_flash_task.c"
+../src/PL_LED_Init/led_flash_task.c:31:1: error: unknown type name 'XGpio'
+ XGpio pl_gpio; // gpio device driver instance
+ ^~~~~
+../src/PL_LED_Init/led_flash_task.c: In function 'plLedInit':
+../src/PL_LED_Init/led_flash_task.c:40:11: warning: implicit declaration of function 'XGpio_Initialize'; did you mean 'vListInitialise'? [-Wimplicit-function-declaration]
+  status = XGpio_Initialize(&pl_gpio, PL_GPIO_DEVICE_ID); // init gpio at pl side
+           ^~~~~~~~~~~~~~~~
+           vListInitialise
+../src/PL_LED_Init/led_flash_task.c:28:27: error: 'XPAR_AXI_GPIO_0_DEVICE_ID' undeclared (first use in this function); did you mean 'XPAR_PS7_GPIO_0_DEVICE_ID'?
+ #define PL_GPIO_DEVICE_ID XPAR_AXI_GPIO_0_DEVICE_ID
+                           ^
+../src/PL_LED_Init/led_flash_task.c:40:38: note: in expansion of macro 'PL_GPIO_DEVICE_ID'
+  status = XGpio_Initialize(&pl_gpio, PL_GPIO_DEVICE_ID); // init gpio at pl side
+                                      ^~~~~~~~~~~~~~~~~
+../src/PL_LED_Init/led_flash_task.c:28:27: note: each undeclared identifier is reported only once for each function it appears in
+ #define PL_GPIO_DEVICE_ID XPAR_AXI_GPIO_0_DEVICE_ID
+                           ^
+../src/PL_LED_Init/led_flash_task.c:40:38: note: in expansion of macro 'PL_GPIO_DEVICE_ID'
+  status = XGpio_Initialize(&pl_gpio, PL_GPIO_DEVICE_ID); // init gpio at pl side
+                                      ^~~~~~~~~~~~~~~~~
+../src/PL_LED_Init/led_flash_task.c:41:16: error: 'XST_SUCCESS' undeclared (first use in this function)
+  if (status != XST_SUCCESS)
+                ^~~~~~~~~~~
+../src/PL_LED_Init/led_flash_task.c:43:10: error: 'XST_FAILURE' undeclared (first use in this function)
+   return XST_FAILURE;
+          ^~~~~~~~~~~
+../src/PL_LED_Init/led_flash_task.c:45:2: warning: implicit declaration of function 'XGpio_SetDataDirection' [-Wimplicit-function-declaration]
+  XGpio_SetDataDirection(&pl_gpio, LED_CHANNEL, 0x00); // output gpio pins
+  ^~~~~~~~~~~~~~~~~~~~~~
+../src/PL_LED_Init/led_flash_task.c: In function 'gpioSendData':
+../src/PL_LED_Init/led_flash_task.c:52:2: warning: implicit declaration of function 'XGpio_DiscreteWrite' [-Wimplicit-function-declaration]
+  XGpio_DiscreteWrite(&pl_gpio, LED_CHANNEL, led);
+  ^~~~~~~~~~~~~~~~~~~
+make: *** [src/PL_LED_Init/led_flash_task.o] Error 1
+21:50:01 **** Clean-only build of configuration Debug for project test ****
+make clean 
+rm -rf  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/interrupt_task.o ./src/main.o ./src/platform.o  ./src/XCP_Communication/UDP_IP.d ./src/XCP_Communication/xcp_eth_init.d  ./src/XCP_Basic_Driver/XcpBasic.d ./src/XCP_Basic_Driver/_xcp_appl.d ./src/XCP_Basic_Driver/xcp_par.d  ./src/Periodic_Tasks/main_periodic_tasks.d  ./src/PL_LED_Init/led_flash_task.d  ./src/interrupt_task.d ./src/main.d ./src/platform.d  test.elf.size  test.elf
+' '
+21:50:02 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c: In function 'start_application':
+../src/XCP_Communication/UDP_IP.c:180:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/XCP_Communication/UDP_IP.c:10:0:
+../../xcp_freertos_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/XCP_Communication/UDP_IP.c:170:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/XCP_Communication/UDP_IP.c'
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+'Finished building: ../src/XCP_Communication/xcp_eth_init.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building file: ../src/Periodic_Tasks/main_periodic_tasks.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/Periodic_Tasks/main_periodic_tasks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/Periodic_Tasks/main_periodic_tasks.d" -MT"src/Periodic_Tasks/main_periodic_tasks.o" -o "src/Periodic_Tasks/main_periodic_tasks.o" "../src/Periodic_Tasks/main_periodic_tasks.c"
+'Finished building: ../src/Periodic_Tasks/main_periodic_tasks.c'
+' '
+'Building file: ../src/interrupt_task.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/interrupt_task.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/interrupt_task.d" -MT"src/interrupt_task.o" -o "src/interrupt_task.o" "../src/interrupt_task.c"
+../src/interrupt_task.c:13:10: fatal error: xintc.h: No such file or directory
+ #include "xintc.h"
+          ^~~~~~~~~
+compilation terminated.
+make: *** [src/interrupt_task.o] Error 1
+21:50:26 **** Clean-only build of configuration Debug for project test ****
+make clean 
+rm -rf  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/interrupt_task.o ./src/main.o ./src/platform.o  ./src/XCP_Communication/UDP_IP.d ./src/XCP_Communication/xcp_eth_init.d  ./src/XCP_Basic_Driver/XcpBasic.d ./src/XCP_Basic_Driver/_xcp_appl.d ./src/XCP_Basic_Driver/xcp_par.d  ./src/Periodic_Tasks/main_periodic_tasks.d  ./src/interrupt_task.d ./src/main.d ./src/platform.d  test.elf.size  test.elf
+' '
+21:50:27 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c: In function 'start_application':
+../src/XCP_Communication/UDP_IP.c:180:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/XCP_Communication/UDP_IP.c:10:0:
+../../xcp_freertos_bsp/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/XCP_Communication/UDP_IP.c:170:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/XCP_Communication/UDP_IP.c'
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+'Finished building: ../src/XCP_Communication/xcp_eth_init.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/XcpBasic.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/XcpBasic.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/XcpBasic.d" -MT"src/XCP_Basic_Driver/XcpBasic.o" -o "src/XCP_Basic_Driver/XcpBasic.o" "../src/XCP_Basic_Driver/XcpBasic.c"
+'Finished building: ../src/XCP_Basic_Driver/XcpBasic.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/_xcp_appl.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/_xcp_appl.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/_xcp_appl.d" -MT"src/XCP_Basic_Driver/_xcp_appl.o" -o "src/XCP_Basic_Driver/_xcp_appl.o" "../src/XCP_Basic_Driver/_xcp_appl.c"
+'Finished building: ../src/XCP_Basic_Driver/_xcp_appl.c'
+' '
+'Building file: ../src/XCP_Basic_Driver/xcp_par.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/XCP_Basic_Driver/xcp_par.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Basic_Driver/xcp_par.d" -MT"src/XCP_Basic_Driver/xcp_par.o" -o "src/XCP_Basic_Driver/xcp_par.o" "../src/XCP_Basic_Driver/xcp_par.c"
+'Finished building: ../src/XCP_Basic_Driver/xcp_par.c'
+' '
+'Building file: ../src/Periodic_Tasks/main_periodic_tasks.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/Periodic_Tasks/main_periodic_tasks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/Periodic_Tasks/main_periodic_tasks.d" -MT"src/Periodic_Tasks/main_periodic_tasks.o" -o "src/Periodic_Tasks/main_periodic_tasks.o" "../src/Periodic_Tasks/main_periodic_tasks.c"
+'Finished building: ../src/Periodic_Tasks/main_periodic_tasks.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: test.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "test.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `main':
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\Debug/../src/main.c:149: undefined reference to `mainLedFlashTask'
+collect2.exe: error: ld returned 1 exit status
+make: *** [test.elf] Error 1
+21:50:38 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet\XCPonEthernet.sdk\test\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../xcp_freertos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: test.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../xcp_freertos_bsp/ps7_cortexa9_0/lib -o "test.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: test.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size test.elf  |tee "test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 174048	   4232	2152752	2331032	 239198	test.elf
+'Finished building: test.elf.size'
+' '
