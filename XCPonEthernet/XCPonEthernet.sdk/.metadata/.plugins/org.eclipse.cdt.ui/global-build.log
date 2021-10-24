@@ -1018,3 +1018,13 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+19:17:03 **** Incremental Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:17:43 **** Incremental Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
