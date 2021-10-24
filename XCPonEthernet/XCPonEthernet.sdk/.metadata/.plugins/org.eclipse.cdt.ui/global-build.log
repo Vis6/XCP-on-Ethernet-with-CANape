@@ -1028,3 +1028,13 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+19:18:26 **** Incremental Build of configuration Debug for project xcp_freertos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:19:03 **** Incremental Build of configuration Debug for project xcp_freertos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
