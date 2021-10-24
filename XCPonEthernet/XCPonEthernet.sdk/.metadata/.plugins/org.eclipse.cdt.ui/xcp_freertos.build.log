@@ -1,8 +1,8 @@
-21:45:00 **** Incremental Build of configuration Debug for project xcp_freertos ****
+18:52:25 **** Incremental Build of configuration Debug for project xcp_freertos ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-21:45:00 Build Finished (took 497ms)
+18:52:26 Build Finished (took 309ms)
 
