@@ -998,3 +998,13 @@ arm-none-eabi-size test.elf  |tee "test.elf.size"
  174048	   4232	2152752	2331032	 239198	test.elf
 'Finished building: test.elf.size'
 ' '
+18:50:53 **** Incremental Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+18:51:13 **** Incremental Build of configuration Debug for project xcp_standalone ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

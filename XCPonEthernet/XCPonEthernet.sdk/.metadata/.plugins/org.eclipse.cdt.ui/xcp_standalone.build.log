@@ -1,8 +1,8 @@
-15:51:12 **** Incremental Build of configuration Debug for project xcp_standalone ****
+18:51:13 **** Incremental Build of configuration Debug for project xcp_standalone ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-15:51:12 Build Finished (took 307ms)
+18:51:13 Build Finished (took 324ms)
 
