@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
---Date        : Sun Oct 24 19:09:00 2021
+--Date        : Sun Oct 24 19:21:09 2021
 --Host        : COM1930 running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -33,8 +33,7 @@ entity design_1_wrapper is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    btns_5bits_tri_o : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    FIXED_IO_ps_srstb : inout STD_LOGIC
   );
 end design_1_wrapper;
 
@@ -61,8 +60,7 @@ architecture STRUCTURE of design_1_wrapper is
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    btns_5bits_tri_o : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    FIXED_IO_ps_porb : inout STD_LOGIC
   );
   end component design_1;
 begin
@@ -88,7 +86,6 @@ design_1_i: component design_1
       FIXED_IO_mio(53 downto 0) => FIXED_IO_mio(53 downto 0),
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      btns_5bits_tri_o(7 downto 0) => btns_5bits_tri_o(7 downto 0)
+      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb
     );
 end STRUCTURE;

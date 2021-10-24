@@ -11,7 +11,6 @@ BEGIN OS
  PARAMETER SYSTMR_SPEC = true
  PARAMETER stdin = ps7_uart_1
  PARAMETER stdout = ps7_uart_1
- PARAMETER tick_rate = 1000
 END
 
 

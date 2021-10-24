@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Oct 24 19:09:25 2021">
+<application name="pa" timeStamp="Sun Oct 24 19:21:26 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="373ed5335f21489eb64c1bc8c4066dfe" type="ProjectID"/>
-<property name="ProjectIteration" value="5" type="ProjectIteration"/>
+<property name="ProjectIteration" value="6" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -20,28 +20,28 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="CloseProject" value="2" type="JavaHandler"/>
 <property name="CreateBlockDesign" value="1" type="JavaHandler"/>
 <property name="CreateTopHDL" value="1" type="JavaHandler"/>
-<property name="CustomizeRSBBlock" value="8" type="JavaHandler"/>
-<property name="EditDelete" value="6" type="JavaHandler"/>
+<property name="CustomizeRSBBlock" value="9" type="JavaHandler"/>
+<property name="EditDelete" value="10" type="JavaHandler"/>
 <property name="FileExit" value="4" type="JavaHandler"/>
-<property name="NewExportHardware" value="4" type="JavaHandler"/>
-<property name="NewLaunchHardware" value="7" type="JavaHandler"/>
+<property name="NewExportHardware" value="6" type="JavaHandler"/>
+<property name="NewLaunchHardware" value="8" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="OpenBlockDesign" value="5" type="JavaHandler"/>
-<property name="RegenerateRSBLayout" value="28" type="JavaHandler"/>
-<property name="RunBitgen" value="4" type="JavaHandler"/>
+<property name="OpenBlockDesign" value="6" type="JavaHandler"/>
+<property name="RegenerateRSBLayout" value="30" type="JavaHandler"/>
+<property name="RunBitgen" value="5" type="JavaHandler"/>
 <property name="RunImplementation" value="1" type="JavaHandler"/>
 <property name="RunSynthesis" value="3" type="JavaHandler"/>
 <property name="SaveRSBDesign" value="5" type="JavaHandler"/>
 <property name="ShowView" value="3" type="JavaHandler"/>
 <property name="ToolsSettings" value="1" type="JavaHandler"/>
-<property name="ValidateRSBDesign" value="7" type="JavaHandler"/>
-<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
+<property name="ValidateRSBDesign" value="9" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="2" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
 <property name="AddHDLWrapperDialog_ADDED_FILE_WOULD_AUTOMATICALLY_BE_UPDATED" value="1" type="GuiHandlerData"/>
 <property name="ApplyRSBMultiAutomationDialog_CHECKBOX_TREE" value="1" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="29" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="34" type="GuiHandlerData"/>
 <property name="BoardChooser_BOARD_TABLE" value="1" type="GuiHandlerData"/>
 <property name="BoardChooser_NAME" value="1" type="GuiHandlerData"/>
 <property name="BoardChooser_VENDOR" value="2" type="GuiHandlerData"/>
@@ -50,22 +50,22 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="5" type="GuiHandlerData"/>
 <property name="FileSetPanel_FILE_SET_PANEL_TREE" value="3" type="GuiHandlerData"/>
 <property name="FilterToolBar_SHOW_ALL" value="1" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="13" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="15" type="GuiHandlerData"/>
 <property name="GICTreeTablePanel_GIC_TREE_TABLE" value="15" type="GuiHandlerData"/>
-<property name="GenSettingTreeTablePanel_GEN_SETTING_TREE_TABLE" value="28" type="GuiHandlerData"/>
+<property name="GenSettingTreeTablePanel_GEN_SETTING_TREE_TABLE" value="32" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="LogPanel_LOG_NAVIGATOR" value="1" type="GuiHandlerData"/>
-<property name="MainMenuMgr_CHECKPOINT" value="20" type="GuiHandlerData"/>
-<property name="MainMenuMgr_CONSTRAINTS" value="8" type="GuiHandlerData"/>
+<property name="MainMenuMgr_CHECKPOINT" value="23" type="GuiHandlerData"/>
+<property name="MainMenuMgr_CONSTRAINTS" value="11" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EDIT" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_EXPORT" value="21" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="38" type="GuiHandlerData"/>
+<property name="MainMenuMgr_EXPORT" value="24" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="44" type="GuiHandlerData"/>
 <property name="MainMenuMgr_FLOW" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_IMPORT" value="9" type="GuiHandlerData"/>
-<property name="MainMenuMgr_IP" value="20" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="19" type="GuiHandlerData"/>
+<property name="MainMenuMgr_IMPORT" value="12" type="GuiHandlerData"/>
+<property name="MainMenuMgr_IP" value="23" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="22" type="GuiHandlerData"/>
 <property name="MainMenuMgr_REPORTS" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_TEXT_EDITOR" value="20" type="GuiHandlerData"/>
+<property name="MainMenuMgr_TEXT_EDITOR" value="23" type="GuiHandlerData"/>
 <property name="MainMenuMgr_TOOLS" value="1" type="GuiHandlerData"/>
 <property name="MainMenuMgr_WINDOW" value="2" type="GuiHandlerData"/>
 <property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="12" type="GuiHandlerData"/>
@@ -74,19 +74,19 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="MsgView_ERROR_MESSAGES" value="1" type="GuiHandlerData"/>
 <property name="MsgView_INFORMATION_MESSAGES" value="1" type="GuiHandlerData"/>
 <property name="MsgView_WARNING_MESSAGES" value="1" type="GuiHandlerData"/>
-<property name="NewExportHardwareDialog_INCLUDE_BITSTREAM" value="1" type="GuiHandlerData"/>
+<property name="NewExportHardwareDialog_INCLUDE_BITSTREAM" value="2" type="GuiHandlerData"/>
 <property name="NotificationManager_RUN_FAILED" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_AUTO_UPDATE_HIER" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_CLOSE_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_CREATE_TOP_HDL" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_EXIT" value="4" type="GuiHandlerData"/>
-<property name="PACommandNames_EXPORT_HARDWARE" value="4" type="GuiHandlerData"/>
+<property name="PACommandNames_EXPORT_HARDWARE" value="6" type="GuiHandlerData"/>
 <property name="PACommandNames_IP_SETTINGS" value="1" type="GuiHandlerData"/>
-<property name="PACommandNames_LAUNCH_HARDWARE" value="7" type="GuiHandlerData"/>
-<property name="PACommandNames_REGENERATE_LAYOUT" value="20" type="GuiHandlerData"/>
+<property name="PACommandNames_LAUNCH_HARDWARE" value="8" type="GuiHandlerData"/>
+<property name="PACommandNames_REGENERATE_LAYOUT" value="22" type="GuiHandlerData"/>
 <property name="PACommandNames_RUN_BITGEN" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SAVE_RSB_DESIGN" value="5" type="GuiHandlerData"/>
-<property name="PACommandNames_VALIDATE_RSB_DESIGN" value="7" type="GuiHandlerData"/>
+<property name="PACommandNames_VALIDATE_RSB_DESIGN" value="9" type="GuiHandlerData"/>
 <property name="ProgressDialog_CANCEL" value="2" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_PROJECT_NAME" value="1" type="GuiHandlerData"/>
@@ -94,7 +94,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="RSBApplyAutomationBar_RUN_CONNECTION_AUTOMATION" value="4" type="GuiHandlerData"/>
 <property name="RunGadget_SHOW_ERROR" value="1" type="GuiHandlerData"/>
 <property name="RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES" value="1" type="GuiHandlerData"/>
-<property name="SaveProjectUtils_SAVE" value="1" type="GuiHandlerData"/>
+<property name="SaveProjectUtils_SAVE" value="2" type="GuiHandlerData"/>
 <property name="SelectMenu_HIGHLIGHT" value="6" type="GuiHandlerData"/>
 <property name="SettingsDialog_PROJECT_TREE" value="2" type="GuiHandlerData"/>
 <property name="SettingsDialog_RESTORE" value="1" type="GuiHandlerData"/>
