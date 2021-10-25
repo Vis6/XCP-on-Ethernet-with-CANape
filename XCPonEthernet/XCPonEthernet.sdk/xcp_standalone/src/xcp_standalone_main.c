@@ -31,7 +31,7 @@
 ******************************************************************************/
 
 /*
- * helloworld.c: simple test application
+ * xcp_standalone_main.c: xcp on ethernet application in bare metal system. 
  *
  * This application configures UART 16550 to baud rate 9600.
  * PS7 UART (Zynq) is not initialized by this application, since
