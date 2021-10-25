@@ -17,7 +17,7 @@ C_DEPS += \
 src/PL_LED_Init/%.o: ../src/PL_LED_Init/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM v7 gcc compiler'
-	arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

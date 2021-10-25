@@ -115,11 +115,12 @@ XGpioPs PS_Gpio;
 volatile int led_status = 0;
 const int OUTPUT_PORT = 7;
 
-/* External Functions */
+/*
+ * External Functions
+ */
 extern void mainLedFlashTask();
 extern void mainPeriodicTasks();
 extern void xcpEthInit();
-extern void interruptTaskInit();
 
 /* Functions */
 void psLEDInit()
@@ -144,11 +145,10 @@ void psLEDInit()
 
 int main( void )
 {
-//	psLEDInit();
+	psLEDInit();
 	xcpEthInit(); // initialize tcp/udp and xcp
-//	mainLedFlashTask(); // create led flashing task
-//	mainPeriodicTasks(); // create periodic tasks
-//	interruptTaskInit(); // 100us interrupt task
+	mainLedFlashTask(); // create led flashing task
+	mainPeriodicTasks(); // create periodic tasks
 
 	/* Start the tasks and timer running. */
 	vTaskStartScheduler();

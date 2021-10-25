@@ -53,13 +53,13 @@ src/XCP_Communication/xcp_eth_init.o src/XCP_Communication/xcp_eth_init.o: \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/prot/udp.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/tcpip.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/timeouts.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform_config.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform_config.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform_config.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform_config.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xparameters.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xil_printf.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/bspconfig.h \
@@ -178,19 +178,19 @@ src/XCP_Communication/xcp_eth_init.o src/XCP_Communication/xcp_eth_init.o: \
 
 ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/timeouts.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform_config.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform_config.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src/platform_config.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src/platform_config.h:
 
 ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xparameters.h:
 

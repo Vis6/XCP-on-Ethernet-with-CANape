@@ -20,10 +20,10 @@ src/Periodic_Tasks/main_periodic_tasks.o \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xqspips.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xqspips_hw.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xil_printf.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h \
- C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h \
+ C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xil_io.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/FreeRTOS.h \
  ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/FreeRTOSConfig.h \
@@ -75,13 +75,13 @@ src/Periodic_Tasks/main_periodic_tasks.o \
 
 ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xil_printf.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/XcpBasic.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_cfg.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_par.h:
 
-C:\UTK_Project\Daimler_Project\XCP\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h:
+C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver/xcp_def.h:
 
 ../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/xil_io.h:
 

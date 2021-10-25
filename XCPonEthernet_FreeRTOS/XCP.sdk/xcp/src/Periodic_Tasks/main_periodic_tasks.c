@@ -35,6 +35,7 @@ static void xcpTask();
 static u32 task1_value = 0;
 static u32 task2_value = 0;
 static u32 calibration_value = 0;
+static u32 signal = 0;
 
 extern u32 XCP_100us_Counter; // XCP
 
@@ -75,6 +76,9 @@ static void prvTask1( void *pvParameters)
 
 		XCP_100us_Counter += 20;
 		XcpEvent(1);
+
+		if (++signal == 100)
+			signal = 0;
 	}
 }
 
