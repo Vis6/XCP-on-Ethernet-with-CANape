@@ -119,3 +119,139 @@ arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
  180132	   4248	2152752	2337132	 23a96c	xcp.elf
 'Finished building: xcp.elf.size'
 ' '
+22:34:34 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/UDP_IP.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c: In function 'start_application':
+../src/XCP_Communication/UDP_IP.c:180:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/XCP_Communication/UDP_IP.c:10:0:
+../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/XCP_Communication/UDP_IP.c:170:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/XCP_Communication/UDP_IP.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:35:01 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+'Finished building: ../src/XCP_Communication/xcp_eth_init.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:35:10 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/XCP_Communication/xcp_eth_init.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/XCP_Communication/xcp_eth_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/xcp_eth_init.d" -MT"src/XCP_Communication/xcp_eth_init.o" -o "src/XCP_Communication/xcp_eth_init.o" "../src/XCP_Communication/xcp_eth_init.c"
+'Finished building: ../src/XCP_Communication/xcp_eth_init.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:36:24 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/Periodic_Tasks/main_periodic_tasks.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/Periodic_Tasks/main_periodic_tasks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/Periodic_Tasks/main_periodic_tasks.d" -MT"src/Periodic_Tasks/main_periodic_tasks.o" -o "src/Periodic_Tasks/main_periodic_tasks.o" "../src/Periodic_Tasks/main_periodic_tasks.c"
+'Finished building: ../src/Periodic_Tasks/main_periodic_tasks.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:37:31 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/PL_LED_Init/led_flash_task.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/PL_LED_Init/led_flash_task.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/PL_LED_Init/led_flash_task.d" -MT"src/PL_LED_Init/led_flash_task.o" -o "src/PL_LED_Init/led_flash_task.o" "../src/PL_LED_Init/led_flash_task.c"
+'Finished building: ../src/PL_LED_Init/led_flash_task.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:38:35 **** Auto Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/Periodic_Tasks/main_periodic_tasks.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/Periodic_Tasks/main_periodic_tasks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/Periodic_Tasks/main_periodic_tasks.d" -MT"src/Periodic_Tasks/main_periodic_tasks.o" -o "src/Periodic_Tasks/main_periodic_tasks.o" "../src/Periodic_Tasks/main_periodic_tasks.c"
+'Finished building: ../src/Periodic_Tasks/main_periodic_tasks.c'
+' '
+'Building target: xcp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/lib -o "xcp.elf"  ./src/XCP_Communication/UDP_IP.o ./src/XCP_Communication/xcp_eth_init.o  ./src/XCP_Basic_Driver/XcpBasic.o ./src/XCP_Basic_Driver/_xcp_appl.o ./src/XCP_Basic_Driver/xcp_par.o  ./src/Periodic_Tasks/main_periodic_tasks.o  ./src/PL_LED_Init/led_flash_task.o  ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: xcp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 180132	   4248	2152752	2337132	 23a96c	xcp.elf
+'Finished building: xcp.elf.size'
+' '
+22:39:06 **** Incremental Build of configuration Debug for project xcp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

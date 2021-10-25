@@ -2,7 +2,7 @@
  * led_flash_task.c
  *
  *  Created on: Mar 23, 2020
- *      Author: Visage
+ *      Author: Ximu Zhang
  *      This source code creates a task that flashes LED at the PL side.
  */
 

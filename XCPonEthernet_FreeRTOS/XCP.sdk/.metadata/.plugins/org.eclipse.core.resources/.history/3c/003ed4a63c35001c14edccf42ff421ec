@@ -1,9 +1,8 @@
 /*
  * main_periodic_tasks.c
  *
- *  Created on: Mar 23, 2020
- *    Author: Ximu Zhang
- *    This source code defines periodic tasks in FreeRTOS.
+ * Author: Ximu Zhang
+ * Program to define periodic tasks in FreeRTOS.
  */
 
 /* Standard includes. */

@@ -3,7 +3,7 @@
  *
  *  Created on: Apr 10, 2020
  *      Author: Hamid Mahmoudi, Ximu Zhang
- *      This source code provides Ethernet transport layer for XCP communication in FreeRTOS.
+ *      This source code provides Ethernet transport layer for XCP communication.
  */
 
 // Header files
