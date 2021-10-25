@@ -148,9 +148,7 @@ void psLEDInit()
 }
 
 /*-----------------------------------------------------------*/
-/*
- * Main function
- */
+
 int main( void )
 {
 	psLEDInit();

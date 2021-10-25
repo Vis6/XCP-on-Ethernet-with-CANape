@@ -126,9 +126,7 @@ extern void mainLedFlashTask();
 extern void mainPeriodicTasks();
 extern void xcpEthInit();
 
-/*
- * Functions definition
- */
+/* Functions */
 void psLEDInit()
 {
 	// Gpio Init
@@ -148,9 +146,7 @@ void psLEDInit()
 }
 
 /*-----------------------------------------------------------*/
-/*
- * Main function
- */
+
 int main( void )
 {
 	psLEDInit();

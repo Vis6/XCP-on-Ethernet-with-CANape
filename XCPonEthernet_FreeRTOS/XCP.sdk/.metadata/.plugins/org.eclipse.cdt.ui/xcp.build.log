@@ -1,11 +1,22 @@
-22:30:18 **** Auto Build of configuration Debug for project xcp ****
+22:33:50 **** Auto Build of configuration Debug for project xcp ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/main.c'
+'Building file: ../src/XCP_Communication/UDP_IP.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src\XCP_Basic_Driver" -I"C:\Users\xzhan134\Documents\GitHub\XCP-on-Ethernet-with-CANape\XCPonEthernet_FreeRTOS\XCP.sdk\xcp\src" -c -fmessage-length=0 -MT"src/XCP_Communication/UDP_IP.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/XCP_Communication/UDP_IP.d" -MT"src/XCP_Communication/UDP_IP.o" -o "src/XCP_Communication/UDP_IP.o" "../src/XCP_Communication/UDP_IP.c"
+../src/XCP_Communication/UDP_IP.c: In function 'start_application':
+../src/XCP_Communication/UDP_IP.c:180:16: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(pcb, recv_callback, NULL);
+                ^~~~~~~~~~~~~
+In file included from ../src/XCP_Communication/UDP_IP.c:10:0:
+../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/XCP_Communication/UDP_IP.c:170:8: warning: variable 'err' set but not used [-Wunused-but-set-variable]
+  err_t err;
+        ^~~
+'Finished building: ../src/XCP_Communication/UDP_IP.c'
 ' '
 'Building target: xcp.elf'
 'Invoking: ARM v7 gcc linker'
@@ -19,5 +30,5 @@ arm-none-eabi-size xcp.elf  |tee "xcp.elf.size"
 'Finished building: xcp.elf.size'
 ' '
 
-22:30:20 Build Finished (took 1s.425ms)
+22:33:51 Build Finished (took 1s.493ms)
 

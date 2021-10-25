@@ -107,11 +107,7 @@
 #include "platform.h"
 #include "xgpiops.h"
 
-
-/*
- * Variable definition
- */
-u32 XCP_100us_Counter; // XCP variable
+u32 XCP_100us_Counter; // XCP
 
 // PS GPIO
 XGpioPs_Config *PS_GPIO_Config;
@@ -120,15 +116,13 @@ volatile int led_status = 0;
 const int OUTPUT_PORT = 7;
 
 /*
- * External functions
+ * External Functions
  */
 extern void mainLedFlashTask();
 extern void mainPeriodicTasks();
 extern void xcpEthInit();
 
-/*
- * Functions definition
- */
+/* Functions */
 void psLEDInit()
 {
 	// Gpio Init
@@ -148,9 +142,7 @@ void psLEDInit()
 }
 
 /*-----------------------------------------------------------*/
-/*
- * Main function
- */
+
 int main( void )
 {
 	psLEDInit();
