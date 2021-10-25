@@ -1,0 +1,4007 @@
+/* @@@@ File written by CANAPE_VERSION 17 0 31 @@@@ */
+
+ASAP2_VERSION 1 51
+/begin PROJECT xcp ""
+
+  /begin MODULE CPP ""
+
+    /begin A2ML
+
+
+      struct Protocol_Layer {
+        uint;  /* XCP protocol layer version, current 0x100 */
+        uint;  /* T1 [ms] */
+        uint;  /* T2 [ms] */
+        uint;  /* T3 [ms] */
+        uint;  /* T4 [ms] */
+        uint;  /* T5 [ms] */
+        uint;  /* T6 [ms] */
+        uint;  /* T7 [ms] */
+        uchar;  /* MAX_CTO */	
+        uint;  /* MAX_DTO */
+        enum {
+          "BYTE_ORDER_MSB_LAST" = 0,
+          "BYTE_ORDER_MSB_FIRST" = 1
+        };
+        enum {
+          "ADDRESS_GRANULARITY_BYTE" = 1,
+          "ADDRESS_GRANULARITY_WORD" = 2,
+          "ADDRESS_GRANULARITY_DWORD" = 4
+        };
+        taggedstruct {
+          ("OPTIONAL_CMD" enum {
+            "GET_COMM_MODE_INFO" = 251,
+            "GET_ID" = 250,
+            "SET_REQUEST" = 249,
+            "GET_SEED" = 248,
+            "UNLOCK" = 247,
+            "SET_MTA" = 246,
+            "UPLOAD" = 245,
+            "SHORT_UPLOAD" = 244,
+            "BUILD_CHECKSUM" = 243,
+            "TRANSPORT_LAYER_CMD" = 242,
+            "USER_CMD" = 241,
+            "DOWNLOAD" = 240,
+            "DOWNLOAD_NEXT" = 239,
+            "DOWNLOAD_MAX" = 238,
+            "SHORT_DOWNLOAD" = 237,
+            "MODIFY_BITS" = 236,
+            "SET_CAL_PAGE" = 235,
+            "GET_CAL_PAGE" = 234,
+            "GET_PAG_PROCESSOR_INFO" = 233,
+            "GET_SEGMENT_INFO" = 232,
+            "GET_PAGE_INFO" = 231,
+            "SET_SEGMENT_MODE" = 230,
+            "GET_SEGMENT_MODE" = 229,
+            "COPY_CAL_PAGE" = 228,
+            "CLEAR_DAQ_LIST" = 227,
+            "SET_DAQ_PTR" = 226,
+            "WRITE_DAQ" = 225,
+            "SET_DAQ_LIST_MODE" = 224,
+            "GET_DAQ_LIST_MODE" = 223,
+            "START_STOP_DAQ_LIST" = 222,
+            "START_STOP_SYNCH" = 221,
+            "GET_DAQ_CLOCK" = 220,
+            "READ_DAQ" = 219,
+            "GET_DAQ_PROCESSOR_INFO" = 218,
+            "GET_DAQ_RESOLUTION_INFO" = 217,
+            "GET_DAQ_LIST_INFO" = 216,
+            "GET_DAQ_EVENT_INFO" = 215,
+            "FREE_DAQ" = 214,
+            "ALLOC_DAQ" = 213,
+            "ALLOC_ODT" = 212,
+            "ALLOC_ODT_ENTRY" = 211,
+            "PROGRAM_START" = 210,
+            "PROGRAM_CLEAR" = 209,
+            "PROGRAM" = 208,
+            "PROGRAM_RESET" = 207,
+            "GET_PGM_PROCESSOR_INFO" = 206,
+            "GET_SECTOR_INFO" = 205,
+            "PROGRAM_PREPARE" = 204,
+            "PROGRAM_FORMAT" = 203,
+            "PROGRAM_NEXT" = 202,
+            "PROGRAM_MAX" = 201,
+            "PROGRAM_VERIFY" = 200
+          })*;
+          "COMMUNICATION_MODE_SUPPORTED" taggedunion {
+            "BLOCK" taggedstruct {
+              "SLAVE" ;
+              "MASTER" struct {
+                uchar;  /* MAX_BS */
+                uchar;  /* MIN_ST */
+              };
+            };
+            "INTERLEAVED" uchar;  /* QUEUE_SIZE */
+          };
+          "SEED_AND_KEY_EXTERNAL_FUNCTION" char[256];  /* Name of the Seed&Key function */
+        };
+      };
+
+      struct Daq {
+        enum {
+          "STATIC" = 0,
+          "DYNAMIC" = 1
+        };
+        uint;  /* MAX_DAQ */
+        uint;  /* MAX_EVENT_CHANNEL */
+        uchar;  /* MIN_DAQ */
+        enum {
+          "OPTIMISATION_TYPE_DEFAULT" = 0,
+          "OPTIMISATION_TYPE_ODT_TYPE_16" = 1,
+          "OPTIMISATION_TYPE_ODT_TYPE_32" = 2,
+          "OPTIMISATION_TYPE_ODT_TYPE_64" = 3,
+          "OPTIMISATION_TYPE_ODT_TYPE_ALIGNMENT" = 4,
+          "OPTIMISATION_TYPE_MAX_ENTRY_SIZE" = 5
+        };
+        enum {
+          "ADDRESS_EXTENSION_FREE" = 0,
+          "ADDRESS_EXTENSION_ODT" = 1,
+          "ADDRESS_EXTENSION_DAQ" = 3
+        };
+        enum {
+          "IDENTIFICATION_FIELD_TYPE_ABSOLUTE" = 0,
+          "IDENTIFICATION_FIELD_TYPE_RELATIVE_BYTE" = 1,
+          "IDENTIFICATION_FIELD_TYPE_RELATIVE_WORD" = 2,
+          "IDENTIFICATION_FIELD_TYPE_RELATIVE_WORD_ALIGNED" = 3
+        };
+        enum {
+          "GRANULARITY_ODT_ENTRY_SIZE_DAQ_BYTE" = 1,
+          "GRANULARITY_ODT_ENTRY_SIZE_DAQ_WORD" = 2,
+          "GRANULARITY_ODT_ENTRY_SIZE_DAQ_DWORD" = 4,
+          "GRANULARITY_ODT_ENTRY_SIZE_DAQ_DLONG" = 8
+        };
+        uchar;  /* MAX_ODT_ENTRY_SIZE_DAQ */
+        enum {
+          "NO_OVERLOAD_INDICATION" = 0,
+          "OVERLOAD_INDICATION_PID" = 1,
+          "OVERLOAD_INDICATION_EVENT" = 2
+        };
+        taggedstruct {
+          "PRESCALER_SUPPORTED" ;
+          "RESUME_SUPPORTED" ;
+          block "STIM" struct {
+            enum {
+              "GRANULARITY_ODT_ENTRY_SIZE_STIM_BYTE" = 1,
+              "GRANULARITY_ODT_ENTRY_SIZE_STIM_WORD" = 2,
+              "GRANULARITY_ODT_ENTRY_SIZE_STIM_DWORD" = 4,
+              "GRANULARITY_ODT_ENTRY_SIZE_STIM_DLONG" = 8
+            };
+            uchar;  /* MAX_ODT_ENTRY_SIZE_STIM */
+            taggedstruct {
+              "BIT_STIM_SUPPORTED" ;
+            };
+          };
+          block "TIMESTAMP_SUPPORTED" struct {
+            uint;  /* TIMESTAMP_TICKS */
+            enum {
+              "NO_TIME_STAMP" = 0,
+              "SIZE_BYTE" = 1,
+              "SIZE_WORD" = 2,
+              "SIZE_DWORD" = 4
+            };
+            enum {
+              "UNIT_1NS" = 0,
+              "UNIT_10NS" = 1,
+              "UNIT_100NS" = 2,
+              "UNIT_1US" = 3,
+              "UNIT_10US" = 4,
+              "UNIT_100US" = 5,
+              "UNIT_1MS" = 6,
+              "UNIT_10MS" = 7,
+              "UNIT_100MS" = 8,
+              "UNIT_1S" = 9
+            };
+            taggedstruct {
+              "TIMESTAMP_FIXED" ;
+            };
+          };
+          "PID_OFF_SUPPORTED" ;
+          (block "DAQ_LIST" struct {
+            uint;  /* DAQ_LIST_NUMBER */
+            taggedstruct {
+              "DAQ_LIST_TYPE" enum {
+                "DAQ" = 1,
+                "STIM" = 2,
+                "DAQ_STIM" = 3
+              };
+              "MAX_ODT" uchar;
+              "MAX_ODT_ENTRIES" uchar;
+              "FIRST_PID" uchar;
+              "EVENT_FIXED" uint;
+              block "PREDEFINED" taggedstruct {
+                (block "ODT" struct {
+                  uchar;  /* ODT number */
+                  taggedstruct {
+                    ("ODT_ENTRY" struct {
+                      uchar;  /* ODT_ENTRY number */
+                      ulong;  /* address of element */
+                      uchar;  /* address extension of element */
+                      uchar;  /* size of element [AG] */
+                      uchar;  /* BIT_OFFSET */
+                    })*;
+                  };
+                })*;
+              };
+            };
+          })*;
+          (block "EVENT" struct {
+            char[101];  /* EVENT_CHANNEL_NAME       */
+            char[9];  /* EVENT_CHANNEL_SHORT_NAME */
+            uint;  /* EVENT_CHANNEL_NUMBER     */
+            enum {
+              "DAQ" = 1,
+              "STIM" = 2,
+              "DAQ_STIM" = 3
+            };
+            uchar;  /* MAX_DAQ_LIST */
+            uchar;  /* TIME_CYCLE   */
+            uchar;  /* TIME_UNIT    */
+            uchar;  /* PRIORITY     */
+          })*;
+        };
+      };
+
+      taggedunion Daq_Event {
+        "FIXED_EVENT_LIST" taggedstruct {
+          ("EVENT" uint)*;
+        };
+        "VARIABLE" taggedstruct {
+          block "AVAILABLE_EVENT_LIST" taggedstruct {
+            ("EVENT" uint)*;
+          };
+          block "DEFAULT_EVENT_LIST" taggedstruct {
+            ("EVENT" uint)*;
+          };
+        };
+      };
+
+      struct Pag {
+        uchar;  /* MAX_SEGMENTS */
+        taggedstruct {
+          "FREEZE_SUPPORTED" ;
+        };
+      };
+
+      struct Pgm {
+        enum {
+          "PGM_MODE_ABSOLUTE" = 1,
+          "PGM_MODE_FUNCTIONAL" = 2,
+          "PGM_MODE_ABSOLUTE_AND_FUNCTIONAL" = 3
+        };
+        uchar;  /* MAX_SECTORS */
+        uchar;  /* MAX_CTO_PGM */
+        taggedstruct {
+          (block "SECTOR" struct {
+            char[101];  /* SECTOR_NAME */
+            uchar;  /* SECTOR_NUMBER */
+            ulong;  /* Address */
+            ulong;  /* Length  */
+            uchar;  /* CLEAR_SEQUENCE_NUMBER */
+            uchar;  /* PROGRAM_SEQUENCE_NUMBER */
+            uchar;  /* PROGRAM_METHOD */
+          })*;
+          "COMMUNICATION_MODE_SUPPORTED" taggedunion {
+            "BLOCK" taggedstruct {
+              "SLAVE" ;
+              "MASTER" struct {
+                uchar;  /* MAX_BS_PGM */
+                uchar;  /* MIN_ST_PGM */
+              };
+            };
+            "INTERLEAVED" uchar;  /* QUEUE_SIZE_PGM */
+          };
+        };
+      };
+
+      struct Segment {
+        uchar;  /* SEGMENT_NUMBER */
+        uchar;  /* number of pages */
+        uchar;  /* ADDRESS_EXTENSION */
+        uchar;  /* COMPRESSION_METHOD */
+        uchar;  /* ENCRYPTION_METHOD */
+        taggedstruct {
+          block "CHECKSUM" struct {
+            enum {
+              "XCP_ADD_11" = 1,
+              "XCP_ADD_12" = 2,
+              "XCP_ADD_14" = 3,
+              "XCP_ADD_22" = 4,
+              "XCP_ADD_24" = 5,
+              "XCP_ADD_44" = 6,
+              "XCP_CRC_16" = 7,
+              "XCP_CRC_16_CITT" = 8,
+              "XCP_CRC_32" = 9,
+              "XCP_USER_DEFINED" = 255
+            };
+            taggedstruct {
+              "MAX_BLOCK_SIZE" ulong;
+              "EXTERNAL_FUNCTION" char[256];  /* Name of the Checksum.DLL */
+            };
+          };
+          (block "PAGE" struct {
+            uchar;  /* PAGE_NUMBER */
+            enum {
+              "ECU_ACCESS_NOT_ALLOWED" = 0,
+              "ECU_ACCESS_ALLOWED_WITHOUT_XCP_ONLY" = 1,
+              "ECU_ACCESS_ALLOWED_WITH_XCP_ONLY" = 2,
+              "ECU_ACCESS_ALLOWED_DONT_CARE" = 3
+            };
+            enum {
+              "XCP_READ_ACCESS_NOT_ALLOWED" = 0,
+              "XCP_READ_ACCESS_ALLOWED_WITHOUT_ECU_ONLY" = 1,
+              "XCP_READ_ACCESS_ALLOWED_WITH_ECU_ONLY" = 2,
+              "XCP_READ_ACCESS_ALLOWED_DONT_CARE" = 3
+            };
+            enum {
+              "XCP_WRITE_ACCESS_NOT_ALLOWED" = 0,
+              "XCP_WRITE_ACCESS_ALLOWED_WITHOUT_ECU_ONLY" = 1,
+              "XCP_WRITE_ACCESS_ALLOWED_WITH_ECU_ONLY" = 2,
+              "XCP_WRITE_ACCESS_ALLOWED_DONT_CARE" = 3
+            };
+            taggedstruct {
+              "INIT_SEGMENT" uchar;  /* references segment that initialises this page */
+            };
+          })*;
+          (block "ADDRESS_MAPPING" struct {
+            ulong;  /* source address */
+            ulong;  /* destination address */
+            ulong;  /* length */
+          })*;
+          "PGM_VERIFY" ulong;  /* verification value for PGM */
+        };
+      };
+
+      taggedstruct Common_Parameters {
+        block "PROTOCOL_LAYER" struct Protocol_Layer;
+        block "SEGMENT" struct Segment;
+        block "DAQ" struct Daq;
+        block "PAG" struct Pag;
+        block "PGM" struct Pgm;
+        block "DAQ_EVENT" taggedunion Daq_Event;
+      };
+
+      struct CAN_Parameters {
+        uint;  /* XCP on CAN version, currentl 0x0100 */
+        taggedstruct {
+          "CAN_ID_BROADCAST" ulong;  /* Auto-detection CAN-ID */
+          "CAN_ID_MASTER" ulong;  /* CMD/STIM CAN-ID */
+          "CAN_ID_SLAVE" ulong;  /* RES/ERR/EV/SERV/DAQ CAN-ID */
+          "BAUDRATE" ulong;  /* Baudrate in Hz */
+          "SAMPLE_POINT" uchar;  /* Sample point in % of bit time */
+          "SAMPLE_RATE" enum {
+            "SINGLE" = 1,
+            "TRIPLE" = 3
+          };
+          "BTL_CYCLES" uchar;  /* slots per bit time */
+          "SJW" uchar;
+          "SYNC_EDGE" enum {
+            "SINGLE" = 1,
+            "DUAL" = 2
+          };
+          "MAX_DLC_REQUIRED" ;  /* master to slave frames */
+          (block "DAQ_LIST_CAN_ID" struct {
+            uint;  /* reference to DAQ_LIST_NUMBER */
+            taggedstruct {
+              "VARIABLE" ;
+              "FIXED" ulong;  /* this DAQ_LIST always on this CAN_ID */
+            };
+          })*;
+        };
+      };
+
+      struct SxI_Parameters {
+        uint;  /* XCP on SxI version, currently 0x0100 */
+        ulong;  /* BAUDRATE [Hz] */
+        taggedstruct {
+          "ASYNCH_FULL_DUPLEX_MODE" struct {
+            enum {
+              "PARITY_NONE" = 0,
+              "PARITY_ODD" = 1,
+              "PARITY_EVEN" = 2
+            };
+            enum {
+              "ONE_STOP_BIT" = 1,
+              "TWO_STOP_BITS" = 2
+            };
+          };
+          "SYNCH_FULL_DUPLEX_MODE_BYTE" ;
+          "SYNCH_FULL_DUPLEX_MODE_WORD" ;
+          "SYNCH_FULL_DUPLEX_MODE_DWORD" ;
+          "SYNCH_MASTER_SLAVE_MODE_BYTE" ;
+          "SYNCH_MASTER_SLAVE_MODE_WORD" ;
+          "SYNCH_MASTER_SLAVE_MODE_DWORD" ;
+        };
+        enum {
+          "HEADER_LEN_BYTE" = 0,
+          "HEADER_LEN_CTR_BYTE" = 1,
+          "HEADER_LEN_WORD" = 2,
+          "HEADER_LEN_CTR_WORD" = 3
+        };
+        enum {
+          "NO_CHECKSUM" = 0,
+          "CHECKSUM_BYTE" = 1,
+          "CHECKSUM_WORD" = 2
+        };
+      };
+
+      struct TCP_IP_Parameters {
+        uint;  /* XCP on TCP_IP version, currently 0x0100 */
+        uint;  /* PORT */
+        taggedunion {
+          "HOST_NAME" char[256];
+          "ADDRESS" char[15];
+        };
+      };
+
+      struct UDP_Parameters {
+        uint;  /* XCP on UDP version, currently 0x0100 */
+        uint;  /* PORT */
+        taggedunion {
+          "HOST_NAME" char[256];
+          "ADDRESS" char[15];
+        };
+      };
+
+      block "IF_DATA" taggedunion if_data {
+
+        "CANAPE_EXT" struct {
+          int;             /* version number */
+          taggedstruct {
+            "LINK_MAP" struct {
+              char[256];   /* segment name */
+              long;        /* base address of the segment */
+              uint;        /* address extension of the segment */
+              uint;        /* flag: address is relative to DS */
+              long;        /* offset of the segment address */
+              uint;        /* datatypValid */
+              uint;        /* enum datatyp */
+              uint;        /* bit offset of the segment */
+            };
+            "DISPLAY" struct {
+              long;        /* display color */
+              double;      /* minimal display value (phys)*/
+              double;      /* maximal display value (phys)*/
+            };
+            "VIRTUAL_CONVERSION" struct {
+              char[256];   /* name of the conversion formula */
+            };
+          };
+        };
+        "CANAPE_MODULE" struct {
+          taggedstruct {
+            ("RECORD_LAYOUT_STEPSIZE" struct {
+              char[256];   /* name of record layout*/
+              uint;        /* stepsize for FNC_VALUES */
+              uint;        /* stepsize for AXIS_PTS_X */
+              uint;        /* stepsize for AXIS_PTS_Y */
+              uint;        /* stepsize for AXIS_PTS_Z */
+              uint;        /* stepsize for AXIS_PTS_4 */
+              uint;        /* stepsize for AXIS_PTS_5 */
+            })*;
+          };
+        };
+        "CANAPE_ADDRESS_UPDATE" taggedstruct {
+          ("EPK_ADDRESS" struct {
+            char[1024];         /* name of the corresponding symbol in MAP file */
+            long;               /* optional address offset */
+          })*;
+          "ECU_CALIBRATION_OFFSET" struct {
+            char[1024];         /* name of the corresponding symbol in MAP file */
+            long;               /* optional address offset */
+          };
+          (block "CALIBRATION_METHOD" taggedunion {
+            "AUTOSAR_SINGLE_POINTERED" struct {
+              char[1024];         /* MAP symbol name for pointer table in RAM */
+              long;               /* optional address offset */
+              taggedstruct {
+                "ORIGINAL_POINTER_TABLE" struct {
+                  char[1024];    /* MAP symbol name for pointer table in FLASH */
+                  long;          /* optional address offset */
+                };
+              };
+            };
+            "InCircuit2" struct {
+              char[1024];         /* MAP symbol name for pointer table in RAM */
+              long;               /* optional address offset */
+              taggedstruct {
+                "ORIGINAL_POINTER_TABLE" struct {
+                  char[1024];    /* MAP symbol name for pointer table in FLASH */
+                  long;          /* optional address offset */
+                };
+                "FLASH_SECTION" struct {
+                  ulong;       /* start address of flash section */
+                  ulong;       /* length of flash section */
+                };
+              };
+            };
+          })*;
+          block "MAP_SYMBOL" taggedstruct {
+            "FIRST" struct {
+              char[1024];  /* symbol name of the corresponding segment in MAP file */
+              long;        /* offset */
+            };
+            "LAST" struct {
+              char[1024];  /* symbol name of the corresponding segment in MAP file */
+              long;        /* offset */
+            };
+            ("ADDRESS_MAPPING_XCP" struct {
+              char[1024];  /* symbol name of source range in MAP file */
+              char[1024];  /* symbol name of destination range in MAP file */
+            })*;
+          };
+          (block "MEMORY_SEGMENT" struct {
+            char[1024];         /* name of the memory segment */
+            taggedstruct {
+              "FIRST" struct {
+                char[1024];  /* symbol name of the corresponding segment in MAP file */
+                long;        /* offset */
+              };
+              "LAST" struct {
+                char[1024];  /* symbol name of the corresponding segment in MAP file */
+                long;        /* offset */
+              };
+              ("ADDRESS_MAPPING_XCP" struct {
+                char[1024];  /* symbol name of source range in MAP file */
+                char[1024];  /* symbol name of destination range in MAP file */
+              })*;
+            };
+          })*;
+        };
+        "CANAPE_GROUP" taggedstruct {
+          block "STRUCTURE_LIST" (char[1024])*;
+        };
+
+        "XCP" struct {
+          taggedstruct Common_Parameters;  /* default parameters */
+          taggedstruct {
+            block "XCP_ON_CAN" struct {
+              struct CAN_Parameters;  /* specific for CAN */
+              taggedstruct Common_Parameters;  /* overruling of default */
+            };
+            block "XCP_ON_SxI" struct {
+              struct SxI_Parameters;  /* specific for SxI */
+              taggedstruct Common_Parameters;  /* overruling of default */
+            };
+            block "XCP_ON_TCP_IP" struct {
+              struct TCP_IP_Parameters;  /* specific for TCP_IP */
+              taggedstruct Common_Parameters;  /* overruling of default */
+            };
+            block "XCP_ON_UDP_IP" struct {
+              struct UDP_Parameters;  /* specific for UDP */
+              taggedstruct Common_Parameters;  /* overruling of default */
+            };
+          };
+        };
+      };
+
+    /end A2ML
+
+    /begin MOD_COMMON ""
+      BYTE_ORDER MSB_LAST
+      ALIGNMENT_BYTE 1
+      ALIGNMENT_WORD 1
+      ALIGNMENT_LONG 1
+      ALIGNMENT_FLOAT32_IEEE 1
+      ALIGNMENT_FLOAT64_IEEE 1
+    /end MOD_COMMON
+
+    /begin IF_DATA XCP
+      /begin PROTOCOL_LAYER
+        0x0100
+        0x07D0
+        0x2710
+        0x00
+        0x00
+        0x00
+        0x00
+        0x00
+        0x08
+        0xFF
+        BYTE_ORDER_MSB_LAST
+        ADDRESS_GRANULARITY_BYTE
+        OPTIONAL_CMD ALLOC_ODT_ENTRY
+        OPTIONAL_CMD ALLOC_ODT
+        OPTIONAL_CMD ALLOC_DAQ
+        OPTIONAL_CMD FREE_DAQ
+        OPTIONAL_CMD GET_DAQ_RESOLUTION_INFO
+        OPTIONAL_CMD GET_DAQ_PROCESSOR_INFO
+        OPTIONAL_CMD GET_DAQ_CLOCK
+        OPTIONAL_CMD START_STOP_SYNCH
+        OPTIONAL_CMD START_STOP_DAQ_LIST
+        OPTIONAL_CMD GET_DAQ_LIST_MODE
+        OPTIONAL_CMD SET_DAQ_LIST_MODE
+        OPTIONAL_CMD WRITE_DAQ
+        OPTIONAL_CMD SET_DAQ_PTR
+        OPTIONAL_CMD CLEAR_DAQ_LIST
+        OPTIONAL_CMD UPLOAD
+        OPTIONAL_CMD SET_MTA
+        OPTIONAL_CMD GET_COMM_MODE_INFO
+      /end PROTOCOL_LAYER
+      /begin DAQ
+        DYNAMIC
+        0x00
+        0x02
+        0x00
+        OPTIMISATION_TYPE_DEFAULT
+        ADDRESS_EXTENSION_FREE
+        IDENTIFICATION_FIELD_TYPE_ABSOLUTE
+        GRANULARITY_ODT_ENTRY_SIZE_DAQ_BYTE
+        0xFE
+        OVERLOAD_INDICATION_PID
+        /begin TIMESTAMP_SUPPORTED
+          0x01
+          SIZE_WORD
+          UNIT_100US
+        /end TIMESTAMP_SUPPORTED
+        /begin EVENT
+          "100us"
+          "100us"
+          0x00
+          DAQ
+          0xFF
+          0x00
+          0x00
+          0x00
+        /end EVENT
+        /begin EVENT
+          "2ms"
+          "2ms"
+          0x01
+          DAQ
+          0xFF
+          0x00
+          0x06
+          0x00
+        /end EVENT
+        /begin EVENT
+          "10ms"
+          "10ms"
+          0x02
+          DAQ
+          0xFF
+          0x00
+          0x00
+          0x00
+        /end EVENT
+        /begin EVENT
+          "20ms"
+          "20ms"
+          0x03
+          DAQ
+          0xFF
+          0x00
+          0x06
+          0x00
+        /end EVENT
+      /end DAQ
+      /begin PAG
+        0x00
+      /end PAG
+      /begin PGM
+        PGM_MODE_ABSOLUTE
+        0x00
+        0x00
+      /end PGM
+      /begin XCP_ON_UDP_IP
+        0x0100
+        0x07
+        ADDRESS "192.168.1.10"
+      /end XCP_ON_UDP_IP
+      /begin XCP_ON_CAN
+        0x0100
+        CAN_ID_MASTER 0x00
+        CAN_ID_SLAVE 0x00
+        BAUDRATE 0x07A120
+        SAMPLE_POINT 0x4B
+        SAMPLE_RATE SINGLE
+        BTL_CYCLES 0x08
+        SJW 0x02
+        SYNC_EDGE SINGLE
+      /end XCP_ON_CAN
+      /begin XCP_ON_SxI
+        0x0100
+        0x2580
+        ASYNCH_FULL_DUPLEX_MODE
+          PARITY_NONE
+          ONE_STOP_BIT
+        HEADER_LEN_BYTE
+        NO_CHECKSUM
+      /end XCP_ON_SxI
+    /end IF_DATA
+    /begin IF_DATA CANAPE_ADDRESS_UPDATE
+    /end IF_DATA
+
+    /begin MOD_PAR ""
+    /end MOD_PAR
+
+
+
+    /begin COMPU_VTAB FRM_2 "" TAB_VERB 4
+      0 "Off"
+      1 "Silent"
+      2 "Pending"
+      3 "Running"
+      DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_VTAB FRM_7 "" TAB_VERB 2
+      0 "Low"
+      100 "High"
+      DEFAULT_VALUE ""
+    /end COMPU_VTAB
+
+    /begin COMPU_METHOD CpuLoad.CONVERSION ""
+      RAT_FUNC "%3.1" "%"
+      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD CpuLoad.CONVERSIONV "@@@@RuleName created by CANape"
+      FORM "%3.1" ""
+      /begin FORMULA
+        "(73424-X1)/73424*100"
+      /end FORMULA
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_2 ""
+      TAB_VERB "%3.1" ""
+      COMPU_TAB_REF FRM_2
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_3 ""
+      RAT_FUNC "%3.1" "Volt"
+      COEFFS 0 1000 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_4 ""
+      RAT_FUNC "%3.1" ""
+      COEFFS 0 100 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_5 ""
+      RAT_FUNC "%3.1" "1/min"
+      COEFFS 0 10 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_6 ""
+      RAT_FUNC "%3.1" "cm"
+      COEFFS 0 0.1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_7 ""
+      TAB_VERB "%3.1" ""
+      COMPU_TAB_REF FRM_7
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_8 ""
+      RAT_FUNC "%3.1" "Nm"
+      COEFFS 0 10 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD FRM_9 ""
+      RAT_FUNC "%3.1" "m"
+      COEFFS 0 10 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD NO_FORMULA "Regel fuer Objekte ohne Umrechnungsregel"
+      RAT_FUNC "%6.0" ""
+      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD PWM_Level.CONVERSION ""
+      RAT_FUNC "%3.1" "Volt"
+      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD ulData000.CONVERSION ""
+      RAT_FUNC "%6.2" ""
+      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin MEASUREMENT CpuLoad ""
+      FLOAT32_IEEE CpuLoad.CONVERSIONV 0 0 0 100
+      BYTE_ORDER MSB_LAST
+      /begin VIRTUAL
+         NoInput
+      /end VIRTUAL 
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 65535 0 100
+        VIRTUAL_CONVERSION "CpuLoad.CONVERSION"
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT byte1 "Demo, read and write possible"
+      UBYTE NO_FORMULA 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x1402A
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT byte2 "Demo, read and write possible"
+      UBYTE NO_FORMULA 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x1402B
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT byte3 "Demo, read and write possible"
+      UBYTE NO_FORMULA 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x1402C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT byte4 "Demo, read and write possible"
+      UBYTE NO_FORMULA 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x1402D
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT byteCounter "Demo signal (byte, incrementing)"
+      UBYTE NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40000
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT bytePWMFilter "Filter constant for PWM filter"
+      UBYTE NO_FORMULA 0 0 0 100
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x14029
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 100
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin CHARACTERISTIC calibration_test ""
+      VALUE 0x1C0034 __FLOAT32_IEEE_S 100 ulData000.CONVERSION -200 200
+      ECU_ADDRESS_EXTENSION 0x0
+      EXTENDED_LIMITS -300 300
+      BYTE_ORDER MSB_LAST
+      FORMAT "%.3"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "calibration_test" 0x1C0034 0x0 0 0x0 1 0x1 0x0
+        DISPLAY 0 -100 100
+      /end IF_DATA
+    /end CHARACTERISTIC
+
+    /begin MEASUREMENT calibration_measure "calibration measurement test"
+      FLOAT32_IEEE NO_FORMULA 0 0 -1E+12 1E+12
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x1BE234
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.3"
+      SYMBOL_LINK "calibration_measure" 0
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "channel1" 0x1BE234 0 0 0 1 0x1 0
+        DISPLAY 0x0 -100 100
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT dwordCounter "Demo signal (dword, incrementing)"
+      ULONG NO_FORMULA 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40008
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin CHARACTERISTIC map1Counter ""
+      VALUE 0x14046 __UBYTE 0 NO_FORMULA 0 255
+      ECU_ADDRESS_EXTENSION 0x0
+      EXTENDED_LIMITS 0 255
+      BYTE_ORDER MSB_LAST
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end CHARACTERISTIC
+
+    /begin MEASUREMENT map1InputX ""
+      UBYTE FRM_9 0 0 0 25.5
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40034
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 7
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT map1InputY ""
+      UBYTE FRM_9 0 0 0 25.5
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40033
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 7
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT map1Output ""
+      UBYTE FRM_6 0 0 0 2550
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40002
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin CHARACTERISTIC map4_80_uc "8*8 BYTE memory layout map4_80_uc"
+      MAP 0x14182 MapX8Y8V88ub 0 NO_FORMULA  0 255
+      ECU_ADDRESS_EXTENSION 0x0
+      EXTENDED_LIMITS 0 255
+      BYTE_ORDER MSB_LAST
+      /begin AXIS_DESCR
+        STD_AXIS NO_INPUT_QUANTITY NO_FORMULA  8 0 255
+        EXTENDED_LIMITS 0 255
+        BYTE_ORDER MSB_LAST
+        DEPOSIT ABSOLUTE
+        FORMAT "%.0"
+      /end AXIS_DESCR
+      /begin AXIS_DESCR
+        STD_AXIS NO_INPUT_QUANTITY NO_FORMULA  8 0 255
+        EXTENDED_LIMITS 0 255
+        BYTE_ORDER MSB_LAST
+        DEPOSIT ABSOLUTE
+        FORMAT "%.0"
+      /end AXIS_DESCR
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+      FORMAT "%.0"
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC map5_82_uc "8*8 BYTE memory layout MapNxX8NyY8V88uc"
+      MAP 0x141D2 MapNxXNyYVuc 0 NO_FORMULA  0 255
+      ECU_ADDRESS_EXTENSION 0x0
+      EXTENDED_LIMITS 0 255
+      BYTE_ORDER MSB_LAST
+      /begin AXIS_DESCR
+        STD_AXIS NO_INPUT_QUANTITY NO_FORMULA  0 0 255
+        EXTENDED_LIMITS 0 255
+        BYTE_ORDER MSB_LAST
+        DEPOSIT ABSOLUTE
+        FORMAT "%.0"
+      /end AXIS_DESCR
+      /begin AXIS_DESCR
+        STD_AXIS NO_INPUT_QUANTITY NO_FORMULA  0 0 255
+        EXTENDED_LIMITS 0 255
+        BYTE_ORDER MSB_LAST
+        DEPOSIT ABSOLUTE
+        FORMAT "%.0"
+      /end AXIS_DESCR
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+      FORMAT "%.0"
+    /end CHARACTERISTIC
+
+    /begin MEASUREMENT ulData000 ""
+      ULONG ulData000.CONVERSION 0 0 0 1000
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3A0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData000" 0x201B3A0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 1000
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData001 ""
+      ULONG ulData000.CONVERSION 0 0 0 1000
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3A4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData001" 0x201B3A4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 1000
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData002 ""
+      ULONG ulData000.CONVERSION 0 0 0 500
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3A8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData002" 0x201B3A8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 500
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData003 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3AC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData003" 0x201B3AC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData004 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3B0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData004" 0x201B3B0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData005 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3B4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData005" 0x201B3B4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData006 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3B8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData006" 0x201B3B8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData007 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3BC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData007" 0x201B3BC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData008 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3C0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData008" 0x201B3C0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData009 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3C4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData009" 0x201B3C4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData010 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3C8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData010" 0x201B3C8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData011 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3CC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData011" 0x201B3CC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData012 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3D0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData012" 0x201B3D0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData013 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3D4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData013" 0x201B3D4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData014 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3D8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData014" 0x201B3D8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData015 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3DC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData015" 0x201B3DC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData016 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3E0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData016" 0x201B3E0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData017 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3E4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData017" 0x201B3E4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData018 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3E8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData018" 0x201B3E8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData019 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3EC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData019" 0x201B3EC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData020 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3F0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData020" 0x201B3F0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData021 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3F4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData021" 0x201B3F4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData022 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3F8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData022" 0x201B3F8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData023 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B3FC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData023" 0x201B3FC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData024 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B400
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData024" 0x201B400 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData025 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B404
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData025" 0x201B404 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData026 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B408
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData026" 0x201B408 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData027 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B40C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData027" 0x201B40C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData028 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B410
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData028" 0x201B410 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData029 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B414
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData029" 0x201B414 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData030 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B418
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData030" 0x201B418 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData031 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B41C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData031" 0x201B41C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData032 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B420
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData032" 0x201B420 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData033 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B424
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData033" 0x201B424 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData034 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B428
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData034" 0x201B428 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData035 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B42C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData035" 0x201B42C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData036 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B430
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData036" 0x201B430 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData037 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B434
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData037" 0x201B434 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData038 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B438
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData038" 0x201B438 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData039 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B43C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData039" 0x201B43C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData040 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B440
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData040" 0x201B440 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData041 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B444
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData041" 0x201B444 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData042 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B448
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData042" 0x201B448 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData043 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B44C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData043" 0x201B44C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData044 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B450
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData044" 0x201B450 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData045 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B454
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData045" 0x201B454 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData046 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B458
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData046" 0x201B458 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData047 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B45C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData047" 0x201B45C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData048 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B460
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData048" 0x201B460 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData049 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B464
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData049" 0x201B464 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData050 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B468
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData050" 0x201B468 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData051 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B46C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData051" 0x201B46C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData052 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B470
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData052" 0x201B470 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData053 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B474
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData053" 0x201B474 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData054 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B478
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData054" 0x201B478 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData055 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B47C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData055" 0x201B47C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData056 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B480
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData056" 0x201B480 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData057 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B484
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData057" 0x201B484 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData058 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B488
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData058" 0x201B488 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData059 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B48C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData059" 0x201B48C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData060 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B490
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData060" 0x201B490 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData061 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B494
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData061" 0x201B494 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData062 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B498
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData062" 0x201B498 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData063 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B49C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData063" 0x201B49C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData064 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4A0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData064" 0x201B4A0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData065 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4A4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData065" 0x201B4A4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData066 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4A8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData066" 0x201B4A8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData067 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4AC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData067" 0x201B4AC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData068 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4B0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData068" 0x201B4B0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData069 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4B4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData069" 0x201B4B4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData070 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4B8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData070" 0x201B4B8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData071 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4BC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData071" 0x201B4BC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData072 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4C0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData072" 0x201B4C0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData073 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4C4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData073" 0x201B4C4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData074 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4C8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData074" 0x201B4C8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData075 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4CC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData075" 0x201B4CC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData076 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4D0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData076" 0x201B4D0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData077 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4D4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData077" 0x201B4D4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData078 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4D8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData078" 0x201B4D8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData079 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4DC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData079" 0x201B4DC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData080 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4E0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData080" 0x201B4E0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData081 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4E4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData081" 0x201B4E4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData082 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4E8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData082" 0x201B4E8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData083 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4EC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData083" 0x201B4EC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData084 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4F0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData084" 0x201B4F0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData085 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4F4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData085" 0x201B4F4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData086 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4F8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData086" 0x201B4F8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData087 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B4FC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData087" 0x201B4FC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData088 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B500
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData088" 0x201B500 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData089 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B504
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData089" 0x201B504 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData090 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B508
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData090" 0x201B508 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData091 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B50C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData091" 0x201B50C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData092 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B510
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData092" 0x201B510 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData093 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B514
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData093" 0x201B514 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData094 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B518
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData094" 0x201B518 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData095 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B51C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData095" 0x201B51C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData096 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B520
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData096" 0x201B520 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData097 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B524
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData097" 0x201B524 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData098 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B528
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData098" 0x201B528 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData099 ""
+      ULONG ulData000.CONVERSION 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B52C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData099" 0x201B52C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData100 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B530
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData100" 0x201B530 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData101 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B534
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData101" 0x201B534 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData102 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B538
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData102" 0x201B538 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData103 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B53C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData103" 0x201B53C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData104 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B540
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData104" 0x201B540 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData105 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B544
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData105" 0x201B544 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData106 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B548
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData106" 0x201B548 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData107 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B54C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData107" 0x201B54C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData108 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B550
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData108" 0x201B550 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData109 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B554
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData109" 0x201B554 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData110 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B558
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData110" 0x201B558 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData111 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B55C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData111" 0x201B55C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData112 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B560
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData112" 0x201B560 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData113 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B564
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData113" 0x201B564 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData114 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B568
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData114" 0x201B568 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData115 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B56C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData115" 0x201B56C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData116 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B570
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData116" 0x201B570 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData117 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B574
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData117" 0x201B574 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData118 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B578
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData118" 0x201B578 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData119 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B57C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData119" 0x201B57C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData120 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B580
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData120" 0x201B580 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData121 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B584
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData121" 0x201B584 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData122 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B588
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData122" 0x201B588 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData123 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B58C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData123" 0x201B58C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData124 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B590
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData124" 0x201B590 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData125 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B594
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData125" 0x201B594 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData126 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B598
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData126" 0x201B598 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData127 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B59C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData127" 0x201B59C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData128 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5A0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData128" 0x201B5A0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData129 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5A4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData129" 0x201B5A4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData130 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5A8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData130" 0x201B5A8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData131 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5AC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData131" 0x201B5AC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData132 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5B0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData132" 0x201B5B0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData133 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5B4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData133" 0x201B5B4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData134 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5B8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData134" 0x201B5B8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData135 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5BC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData135" 0x201B5BC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData136 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5C0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData136" 0x201B5C0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData137 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5C4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData137" 0x201B5C4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData138 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5C8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData138" 0x201B5C8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData139 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5CC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData139" 0x201B5CC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData140 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5D0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData140" 0x201B5D0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData141 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5D4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData141" 0x201B5D4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData142 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5D8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData142" 0x201B5D8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData143 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5DC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData143" 0x201B5DC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData144 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5E0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData144" 0x201B5E0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData145 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5E4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData145" 0x201B5E4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData146 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5E8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData146" 0x201B5E8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData147 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5EC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData147" 0x201B5EC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData148 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5F0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData148" 0x201B5F0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData149 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5F4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData149" 0x201B5F4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData150 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5F8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData150" 0x201B5F8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData151 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B5FC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData151" 0x201B5FC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData152 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B600
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData152" 0x201B600 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData153 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B604
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData153" 0x201B604 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData154 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B608
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData154" 0x201B608 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData155 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B60C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData155" 0x201B60C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData156 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B610
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData156" 0x201B610 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData157 ""
+      ULONG NO_FORMULA 0 0 0 3
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B614
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData157" 0x201B614 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData158 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B618
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData158" 0x201B618 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData159 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B61C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData159" 0x201B61C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData160 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B620
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData160" 0x201B620 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData161 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B624
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData161" 0x201B624 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData162 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B628
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData162" 0x201B628 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData163 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B62C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData163" 0x201B62C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData164 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B630
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData164" 0x201B630 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData165 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B634
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData165" 0x201B634 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData166 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B638
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData166" 0x201B638 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData167 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B63C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData167" 0x201B63C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData168 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B640
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData168" 0x201B640 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData169 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B644
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData169" 0x201B644 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData170 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B648
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData170" 0x201B648 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData171 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B64C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData171" 0x201B64C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData172 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B650
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData172" 0x201B650 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData173 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B654
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData173" 0x201B654 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData174 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B658
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData174" 0x201B658 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData175 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B65C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData175" 0x201B65C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData176 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B660
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData176" 0x201B660 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData177 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B664
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData177" 0x201B664 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData178 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B668
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData178" 0x201B668 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData179 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B66C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData179" 0x201B66C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData180 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B670
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData180" 0x201B670 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData181 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B674
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData181" 0x201B674 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData182 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B678
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData182" 0x201B678 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData183 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B67C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData183" 0x201B67C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData184 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B680
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData184" 0x201B680 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData185 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B684
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData185" 0x201B684 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData186 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B688
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData186" 0x201B688 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData187 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B68C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData187" 0x201B68C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData188 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B690
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData188" 0x201B690 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData189 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B694
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData189" 0x201B694 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData190 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B698
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData190" 0x201B698 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData191 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B69C
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData191" 0x201B69C 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData192 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6A0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData192" 0x201B6A0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData193 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6A4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData193" 0x201B6A4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData194 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6A8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData194" 0x201B6A8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData195 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6AC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData195" 0x201B6AC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData196 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6B0
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData196" 0x201B6B0 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData197 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6B4
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData197" 0x201B6B4 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData198 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6B8
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData198" 0x201B6B8 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulData199 ""
+      ULONG NO_FORMULA 0 0 0 255
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x201B6BC
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulData199" 0x201B6BC 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT ulMsCounter ""
+      ULONG NO_FORMULA 0 0 0 10000000000
+      ECU_ADDRESS 0x201A820
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.12"
+      /begin IF_DATA CANAPE_EXT
+        100
+        LINK_MAP "ulMsCounter" 0x201A820 0x0 0 0x0 0 0x0 0x0
+        DISPLAY 0 0 10000000000
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT v "Digital Filter Outputvalue"
+      UWORD FRM_3 0 0 0 1
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40038
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 1
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT vin "Digital Filter Inputvalue"
+      UWORD FRM_3 0 0 0 1
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40042
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 1
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin MEASUREMENT wordCounter "Demo signal (word, incrementing)"
+      UWORD NO_FORMULA 0 0 0 65535
+      READ_WRITE
+      BYTE_ORDER MSB_LAST
+      ECU_ADDRESS 0x40054
+      ECU_ADDRESS_EXTENSION 0x0
+      FORMAT "%.0"
+      /begin IF_DATA CANAPE_EXT
+        100
+        DISPLAY 0 0 255
+      /end IF_DATA
+    /end MEASUREMENT
+
+    /begin GROUP Axis "Shared Axis for Calibration Maps"
+    /end GROUP
+
+    /begin GROUP Bits "Single Bit Values"
+    /end GROUP
+
+    /begin GROUP Bitslices "Multibit Values"
+    /end GROUP
+
+    /begin GROUP Curves "Calibration Curves"
+    /end GROUP
+
+    /begin GROUP EcuSim "Kommentar"
+      ROOT
+      /begin SUB_GROUP
+        Axis 
+        Curves 
+        Example_Filter 
+        Example_PWM 
+        Maps 
+        Measure 
+        Parameters 
+      /end SUB_GROUP
+    /end GROUP
+
+    /begin GROUP Example_Filter "Digital Filter v=(vin*a0+v*b0)/c0"
+      /begin REF_MEASUREMENT
+        v vin 
+      /end REF_MEASUREMENT
+    /end GROUP
+
+    /begin GROUP Example_PWM "Generator for a PWM Signal"
+      /begin SUB_GROUP
+        PWM_Parameters 
+        PWM_Signals 
+      /end SUB_GROUP
+    /end GROUP
+
+    /begin GROUP Maps "Calibration Maps"
+      /begin SUB_GROUP
+        WorkingPoint 
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        map4_80_uc map5_82_uc 
+      /end REF_CHARACTERISTIC
+    /end GROUP
+
+    /begin GROUP Measure "Measurement Values"
+      /begin SUB_GROUP
+        Bits 
+        Bitslices 
+        Test_Signals 
+      /end SUB_GROUP
+    /end GROUP
+
+    /begin GROUP Parameters "Calibration Parameters"
+      /begin SUB_GROUP
+        Test_Parameters 
+      /end SUB_GROUP
+    /end GROUP
+
+    /begin GROUP PWM_Parameters "Parametes for PWM Example"
+      /begin REF_MEASUREMENT
+        bytePWMFilter 
+      /end REF_MEASUREMENT
+    /end GROUP
+
+    /begin GROUP PWM_Signals "Measurement Signals from PWM"
+    /end GROUP
+
+    /begin GROUP Test_Parameters "Test Parameters, BYTE"
+    /end GROUP
+
+    /begin GROUP Test_Signals "Test Signals"
+      /begin REF_MEASUREMENT
+        byte1 byte2 byte3 byte4 byteCounter dwordCounter wordCounter 
+      /end REF_MEASUREMENT
+    /end GROUP
+
+    /begin GROUP WorkingPoint "Example for working point"
+      /begin REF_CHARACTERISTIC
+        map1Counter 
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        map1InputX map1InputY map1Output 
+      /end REF_MEASUREMENT
+    /end GROUP
+
+
+
+    /begin RECORD_LAYOUT __FLOAT32_IEEE
+      FNC_VALUES 1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SBYTE
+      FNC_VALUES 1 SBYTE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SLONG
+      FNC_VALUES 1 SLONG COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SWORD
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __UBYTE
+      FNC_VALUES 1 UBYTE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __ULONG
+      FNC_VALUES 1 ULONG COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __UWORD
+      FNC_VALUES 1 UWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT _CurveNxVub
+      FNC_VALUES 2 UBYTE ROW_DIR DIRECT
+      NO_AXIS_PTS_X 1 UBYTE
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveNxVub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      FNC_VALUES 2 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveNxXVub
+      AXIS_PTS_X 2 UBYTE INDEX_INCR DIRECT
+      FNC_VALUES 3 UBYTE ROW_DIR DIRECT
+      NO_AXIS_PTS_X 1 UBYTE
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveV8ub
+      FIX_NO_AXIS_PTS_X 8
+      FNC_VALUES 1 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveVub
+      FNC_VALUES 1 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveX8ub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      FIX_NO_AXIS_PTS_X 8
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveX8V8ub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      FIX_NO_AXIS_PTS_X 8
+      FNC_VALUES 2 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT CurveX8V8ubAlternate
+      AXIS_PTS_X 1 UWORD INDEX_INCR DIRECT
+      FIX_NO_AXIS_PTS_X 8
+      FNC_VALUES 2 UWORD ALTERNATE_WITH_X DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapColRowuw
+      FNC_VALUES 1 UWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapNxNyVub
+      FNC_VALUES 3 UBYTE ROW_DIR DIRECT
+      NO_AXIS_PTS_X 1 UBYTE
+      NO_AXIS_PTS_Y 2 UBYTE
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapNxNyXYVub
+      AXIS_PTS_X 3 UBYTE INDEX_INCR DIRECT
+      AXIS_PTS_Y 4 UBYTE INDEX_INCR DIRECT
+      FNC_VALUES 5 UBYTE ROW_DIR DIRECT
+      NO_AXIS_PTS_X 1 UBYTE
+      NO_AXIS_PTS_Y 2 UBYTE
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapNxXNyYVuc
+      AXIS_PTS_X 2 UBYTE INDEX_INCR DIRECT
+      AXIS_PTS_Y 4 UBYTE INDEX_INCR DIRECT
+      FNC_VALUES 5 UBYTE ROW_DIR DIRECT
+      NO_AXIS_PTS_X 1 UBYTE
+      NO_AXIS_PTS_Y 3 UBYTE
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapRowColub
+      FNC_VALUES 1 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapV86ub
+      FIX_NO_AXIS_PTS_X 8
+      FIX_NO_AXIS_PTS_Y 6
+      FNC_VALUES 1 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapX8Y6V86ub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      AXIS_PTS_Y 2 UBYTE INDEX_INCR DIRECT
+      FIX_NO_AXIS_PTS_X 8
+      FIX_NO_AXIS_PTS_Y 6
+      FNC_VALUES 3 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapX8Y8V88ub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      AXIS_PTS_Y 2 UBYTE INDEX_INCR DIRECT
+      FIX_NO_AXIS_PTS_X 8
+      FIX_NO_AXIS_PTS_Y 8
+      FNC_VALUES 3 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT MapXYVub
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+      AXIS_PTS_Y 2 UBYTE INDEX_INCR DIRECT
+      FNC_VALUES 3 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__FLOAT32_IEEE
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SBYTE
+      AXIS_PTS_X 1 SBYTE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SLONG
+      AXIS_PTS_X 1 SLONG INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SWORD
+      AXIS_PTS_X 1 SWORD INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__UBYTE
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__ULONG
+      AXIS_PTS_X 1 ULONG INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__UWORD
+      AXIS_PTS_X 1 UWORD INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+    /begin RECORD_LAYOUT __UBYTE_Z 
+      FNC_VALUES 1 UBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __UWORD_Z 
+      FNC_VALUES 1 UWORD ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __ULONG_Z 
+      FNC_VALUES 1 ULONG ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SBYTE_Z 
+      FNC_VALUES 1 SBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SWORD_Z 
+      FNC_VALUES 1 SWORD ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SLONG_Z 
+      FNC_VALUES 1 SLONG ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __FLOAT32_IEEE_Z 
+      FNC_VALUES 1 FLOAT32_IEEE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __FLOAT64_IEEE_Z 
+      FNC_VALUES 1 FLOAT64_IEEE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __UBYTE_S 
+      FNC_VALUES 1 UBYTE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __UWORD_S 
+      FNC_VALUES 1 UWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __ULONG_S 
+      FNC_VALUES 1 ULONG COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SBYTE_S 
+      FNC_VALUES 1 SBYTE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SWORD_S 
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __SLONG_S 
+      FNC_VALUES 1 SLONG COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __FLOAT32_IEEE_S 
+      FNC_VALUES 1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT __FLOAT64_IEEE_S 
+      FNC_VALUES 1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__UBYTE_S 
+      AXIS_PTS_X 1 UBYTE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__UWORD_S 
+      AXIS_PTS_X 1 UWORD INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__ULONG_S 
+      AXIS_PTS_X 1 ULONG INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SBYTE_S 
+      AXIS_PTS_X 1 SBYTE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SWORD_S 
+      AXIS_PTS_X 1 SWORD INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__SLONG_S 
+      AXIS_PTS_X 1 SLONG INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__FLOAT32_IEEE_S 
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT SSV__FLOAT64_IEEE_S 
+      AXIS_PTS_X 1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end RECORD_LAYOUT
+
+  /end MODULE
+/end PROJECT

@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Apr 14 14:10:07 2020
+# Process ID: 22460
+# Current directory: D:/UTK_Project/Daimler_Project/XCP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14608 D:\UTK_Project\Daimler_Project\XCP\XCP.xpr
+# Log file: D:/UTK_Project/Daimler_Project/XCP/vivado.log
+# Journal file: D:/UTK_Project/Daimler_Project/XCP\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UTK_Project/Daimler_Project/XCP/XCP.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Softwares/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 859.953 ; gain = 178.770
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/UTK_Project/Daimler_Project/XCP/XCP.sdk -hwspec D:/UTK_Project/Daimler_Project/XCP/XCP.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/UTK_Project/Daimler_Project/XCP/XCP.sdk -hwspec D:/UTK_Project/Daimler_Project/XCP/XCP.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 14 14:22:57 2020...

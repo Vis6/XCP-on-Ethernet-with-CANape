@@ -1,0 +1,3 @@
+com.xilinx.sdx.sdk.gdb.debug.launch.SdkGdbLaunchDelegate.dont_show_debug_launch_warn=always
+dialog_settings.fpga_done_pin_check.Local=always
+eclipse.preferences.version=1

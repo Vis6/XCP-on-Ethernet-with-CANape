@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ShowViewDialog">
+		<item value="472" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="com.xilinx.sdk.logger.SdkLogView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="517" key="DIALOG_HEIGHT"/>
+		<item value="1215" key="DIALOG_X_ORIGIN"/>
+		<item value="447" key="DIALOG_Y_ORIGIN"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="Xilinx"/>
+		</list>
+	</section>
+</section>

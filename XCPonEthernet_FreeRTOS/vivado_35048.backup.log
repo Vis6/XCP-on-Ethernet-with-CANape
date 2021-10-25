@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Jun  8 19:34:54 2020
+# Process ID: 35048
+# Current directory: D:/UTK_Project/Daimler_Project/XCP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35208 D:\UTK_Project\Daimler_Project\XCP\XCP.xpr
+# Log file: D:/UTK_Project/Daimler_Project/XCP/vivado.log
+# Journal file: D:/UTK_Project/Daimler_Project/XCP\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/UTK_Project/Daimler_Project/XCP/XCP.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Softwares/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 867.160 ; gain = 185.055
+update_compile_order -fileset sources_1
+open_bd_design {D:/UTK_Project/Daimler_Project/XCP/XCP.srcs/sources_1/bd/design_1/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_intc:4.1 - axi_intc_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axi_intc_0/irq(undef) and /processing_system7_0/IRQ_F2P(intr)
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <design_1> from BD file <D:/UTK_Project/Daimler_Project/XCP/XCP.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 946.363 ; gain = 75.785
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jun  8 19:37:02 2020...

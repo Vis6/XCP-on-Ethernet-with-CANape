@@ -1,0 +1,90 @@
+10:03:31 **** Auto Build of configuration Debug for project test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/iic_phyreset.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/iic_phyreset.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/iic_phyreset.d" -MT"src/iic_phyreset.o" -o "src/iic_phyreset.o" "../src/iic_phyreset.c"
+'Finished building: ../src/iic_phyreset.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'network_thread':
+../src/main.c:119:2: warning: implicit declaration of function 'sys_thread_new' [-Wimplicit-function-declaration]
+  sys_thread_new("xemacif_input_thread",
+  ^~~~~~~~~~~~~~
+../src/main.c:137:2: warning: implicit declaration of function 'vTaskDelete' [-Wimplicit-function-declaration]
+  vTaskDelete(NULL);
+  ^~~~~~~~~~~
+../src/main.c: In function 'main':
+../src/main.c:205:2: warning: implicit declaration of function 'vTaskStartScheduler' [-Wimplicit-function-declaration]
+  vTaskStartScheduler();
+  ^~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/udp_perf_server.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/udp_perf_server.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../freertos10_xilinx_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/udp_perf_server.d" -MT"src/udp_perf_server.o" -o "src/udp_perf_server.o" "../src/udp_perf_server.c"
+../src/udp_perf_server.c:52:41: warning: 'struct sockaddr_in' declared inside parameter list will not be visible outside of this definition or declaration
+ static void print_udp_conn_stats(struct sockaddr_in from)
+                                         ^~~~~~~~~~~
+../src/udp_perf_server.c:52:53: error: parameter 1 ('from') has incomplete type
+ static void print_udp_conn_stats(struct sockaddr_in from)
+                                                     ^~~~
+../src/udp_perf_server.c: In function 'reset_stats':
+../src/udp_perf_server.c:150:34: error: 'portTICK_RATE_MS' undeclared (first use in this function)
+  server.start_time = sys_now() * portTICK_RATE_MS;
+                                  ^~~~~~~~~~~~~~~~
+../src/udp_perf_server.c:150:34: note: each undeclared identifier is reported only once for each function it appears in
+../src/udp_perf_server.c: In function 'udp_recv_perf_traffic':
+../src/udp_perf_server.c:174:21: error: storage size of 'from' isn't known
+  struct sockaddr_in from;
+                     ^~~~
+../src/udp_perf_server.c:175:2: error: unknown type name 'socklen_t'
+  socklen_t fromlen = sizeof(from);
+  ^~~~~~~~~
+../src/udp_perf_server.c:178:15: warning: implicit declaration of function 'lwip_recvfrom' [-Wimplicit-function-declaration]
+   if((count = lwip_recvfrom(sock, recv_buf, UDP_RECV_BUFSIZE, 0,
+               ^~~~~~~~~~~~~
+../src/udp_perf_server.c:204:28: error: 'portTICK_RATE_MS' undeclared (first use in this function)
+    u64_t now = sys_now() * portTICK_RATE_MS;
+                            ^~~~~~~~~~~~~~~~
+../src/udp_perf_server.c:207:8: warning: implicit declaration of function 'sendto'; did you mean 'seed48'? [-Wimplicit-function-declaration]
+    if (sendto(sock, recv_buf, count, 0,
+        ^~~~~~
+        seed48
+../src/udp_perf_server.c:174:21: warning: unused variable 'from' [-Wunused-variable]
+  struct sockaddr_in from;
+                     ^~~~
+../src/udp_perf_server.c: In function 'start_application':
+../src/udp_perf_server.c:268:21: error: storage size of 'addr' isn't known
+  struct sockaddr_in addr;
+                     ^~~~
+../src/udp_perf_server.c:270:14: warning: implicit declaration of function 'socket' [-Wimplicit-function-declaration]
+  if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+              ^~~~~~
+../src/udp_perf_server.c:270:21: error: 'AF_INET' undeclared (first use in this function)
+  if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+                     ^~~~~~~
+../src/udp_perf_server.c:270:30: error: 'SOCK_DGRAM' undeclared (first use in this function)
+  if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+                              ^~~~~~~~~~
+../src/udp_perf_server.c:275:26: error: invalid application of 'sizeof' to incomplete type 'struct sockaddr_in'
+  memset(&addr, 0, sizeof(struct sockaddr_in));
+                          ^~~~~~
+../src/udp_perf_server.c:280:8: warning: implicit declaration of function 'bind'; did you mean 'rand'? [-Wimplicit-function-declaration]
+  err = bind(sock, (struct sockaddr *)&addr, sizeof(addr));
+        ^~~~
+        rand
+../src/udp_perf_server.c:283:3: warning: implicit declaration of function 'close'; did you mean 'pclose'? [-Wimplicit-function-declaration]
+   close(sock);
+   ^~~~~
+   pclose
+../src/udp_perf_server.c:268:21: warning: unused variable 'addr' [-Wunused-variable]
+  struct sockaddr_in addr;
+                     ^~~~
+make: *** [src/udp_perf_server.o] ´íÎó 1
+
+10:03:32 Build Finished (took 1s.201ms)
+
